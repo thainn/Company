@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+/*-----------------------------------------------------
+RESET
+-------------------------------------------------------*/
+*{
+	font-size:100%;
+}
+
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,dl,pre,form,dl,dt,dd,blockquote,fieldset,input,address{
+	margin:0;
+	padding:0;
+}
+
+h1,h2,h3,h4,h5,h6,caption,address,th{
+	font-style:normal;
+	font-weight:normal;
+}
+
+ul,ol,li,dl,dt,dd{
+	list-style-type:none;
+	list-style-position:outside;
+}
+
+table,th,td{
+	
+}
+
+caption{
+	display:none;
+}
+
+fieldset{
+	border:none;
+}
+
+legend{
+	display:none;
+}
+
+img{
+	border:0;
+	vertical-align:top;
+}
+
+hr{
+	display:none;
+	clear: both;
+}
+
+br{
+	letter-spacing:0;
+}
+
+/* form */  
+button,fieldset,form,input,label,legend,select,textarea{
+	font-family:inherit;
+	font-style:inherit;
+	font-weight:inherit;
+	font-size:100%;
+	margin:0;
+	padding:0;
+	vertical-align:baseline;
+}
+select{
+	padding:2px;
+}
+
+/*-----------------------------------------------------
+BASE LINK COLOR
+-------------------------------------------------------*/
+a{
+	outline:none;
+}
+a:link,
+a:visited{
+	color:#555;
+	text-decoration:underline;
+}
+a:hover{
+	color:#555;
+	text-decoration:none;
+}

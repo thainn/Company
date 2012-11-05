@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+/*-----------------------------------------------------
+section
+-------------------------------------------------------*/
+#Content h1.news{
+	background:url("../images/news/bg_title.gif") no-repeat 100% 0;
+}
+
+#Main div.section ul{
+	padding:8px 0 0 0;
+}
+#Main div.section ul li{
+	overflow:hidden;
+	padding:14px;
+	_zoom:1;
+}
+#Main div.section ul li.even{
+	background:url("../images/news/bg_grey.jpg");
+}
+#Main div.section ul li em{
+	width:80px;
+	float:left;
+	font-style:normal;
+}
+#Main div.section ul li span{
+	width:560px;
+	float:right;
+}
+#Main div.section ul li img{
+	float:left;
+}

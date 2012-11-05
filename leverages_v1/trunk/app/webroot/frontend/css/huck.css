@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+/*-----------------------------------------------------
+CLEARFIX
+-------------------------------------------------------*/
+
+/* clearfix (Firefox)
+------------------------------- */
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0px;
+	clear:both;
+	visibility:hidden;
+}
+
+/* WinIE7
+------------------------------- */
+.clearfix{
+	display:inline-block;
+}
+
+/* WinIE6
+------------------------------- */
+/* Hides from IE-mac \*/
+* html .clearfix{
+	height:1px;
+}
+
+.clearfix{
+	display:block;
+}
+
+/*-----------------------------------------------------
+HUCK
+-------------------------------------------------------*/
+
+/* IE6 
+* html div#{
+	
+}
+*/
+
+/* IE7 
+*:first-child+html div#{
+	
+}
+*/
+
+/* Firefox 
+html>body  div#{
+	
+}
+*/
+
+/* Safari & Opera
+html:first-child  div#{
+	
+}
+*/
+
+/* Safari 
+html:\66irst-child  div#{
+	
+}
+*/

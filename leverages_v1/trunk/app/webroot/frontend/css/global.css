@@ -1,0 +1,375 @@
+@charset "utf-8";
+
+/*-----------------------------------------------------
+html
+-------------------------------------------------------*/
+html{
+	overflow-y:scroll;
+}
+
+/*-----------------------------------------------------
+body
+-------------------------------------------------------*/
+body{
+	font-size:12px;
+	color:#555;
+	line-height:1.4;
+	letter-spacing:0.1em;
+	font-family:Arial,Osaka,Sans-Serif,"ＭＳ Ｐゴシック","MS PGothic","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro";
+	background:url("../images/body_bg_repeat.jpg");
+}
+
+/* for IE6 */
+* html body{
+	font-size:75%;
+}
+
+/* for IE7 */
+*:first-child + html body{
+	font-size:75%;
+}
+
+/* for IE8 */
+html>/**/body {
+	font-size/*\**/: 75%\9;
+}
+
+
+/*-----------------------------------------------------
+nonvisual-menu
+-------------------------------------------------------*/
+div.nonvisual-menu{
+	width:0;
+	height:0;
+	font-size:1px;
+	line-height:1px;
+	overflow:hidden;
+	/* except MacIE \*/position: absolute;/* end */
+	left:0;
+	top:0;
+	color:#fff;
+}
+
+div.nonvisual-menu a{
+	text-decoration:none;
+	font-size:1px;
+	line-height:1px;
+	color:#fff;
+}
+#main-Contents img{
+	position:absolute;
+	border:none!important;
+	height:1px;
+	top:0px;
+	left:0px;
+}
+
+
+/*-----------------------------------------------------
+Container
+-------------------------------------------------------*/
+#Container{
+	width:100%;
+	background:url("../images/body_bg_header.jpg") repeat-x 0 0;
+}
+
+
+/*-----------------------------------------------------
+Header
+-------------------------------------------------------*/
+#Header{
+	width:936px;
+	height:176px;
+	margin:0 auto;
+}
+
+/* logo
+---------------------*/
+#Header h1,
+#Header p#logo{
+	padding:47px 0 32px 9px;
+}
+/* GlobalNavi
+---------------------*/
+#Header ul#GlobalNavi{
+	height:68px;
+	float:left;
+}
+#Header ul#GlobalNavi li{
+	float:left;
+	padding:13px 16px 27px 0;
+	background:url("../images/header_bg_navi.gif") no-repeat 7px 0;
+}
+
+/* contact
+---------------------*/
+#Header ul.contact{
+	float:right;
+}
+#Header ul.contact li{
+	float:left;
+	line-height:1;
+	padding:20px 7px 0 14px;
+}
+
+/*-----------------------------------------------------
+Content
+-------------------------------------------------------*/
+#Content{
+	width:100%;
+	background:url("../images/body_bg_main.jpg") repeat-x 0 0;
+}
+#Wrapper{
+	width:920px;
+	margin:0 auto;
+	padding:0 7px;
+}
+
+/* pankuzu
+---------------------*/
+#Content dl.pankuzu{
+	margin:0 0 13px 0;
+	height:25px;
+	background:url("../images/main_bg_darkheightline.gif") repeat-y 0 0;
+}
+#Content dl.pankuzu dt{
+	font-size:1px;
+	line-height:1px;
+	display:none;
+	overflow:hidden;
+}
+#Content dl.pankuzu dd{
+}
+#Content dl.pankuzu ul{
+	float:left;
+	line-height:25px;
+}
+#Content dl.pankuzu ul li{
+	float:left;
+	height:25px;
+	padding:0 30px 0 15px;
+	font-size:84%;
+	background:url("../images/main_bg_pankuzu_1.gif") no-repeat 100% 0;
+}
+#Content dl.pankuzu ul li.active{
+	background:url("../images/main_bg_pankuzu_2.gif") no-repeat 100% 0;
+}
+#Content dl.pankuzu ul li.home{
+	padding:0 20px 0 10px;
+}
+#Content dl.pankuzu ul li a{
+	text-decoration:none;
+}
+#Content dl.pankuzu ul li a:hover{
+	text-decoration:underline;
+}
+#Content dl.pankuzu ul li a img{
+	margin:3px 0;
+	padding:5px;
+}
+
+/* h1
+---------------------*/
+#Content h1{
+	width:920px;
+	height:66px;
+	padding:47px 0 0 0;
+	margin:0 auto;
+}
+#Content h1.company{
+	background:url("../images/bg_title.gif") no-repeat 100% 0;
+}
+#Content h1.service{
+	background:url("../images/bg_title (1).gif") no-repeat 100% 0;
+}
+#Content h1.privacy{
+	background:url("../images/bg_title (2).gif") no-repeat 100% 0;
+}
+
+
+/*-------------------------------------
+Main
+---------------------------------------*/
+#Main{
+	width:680px;
+	float:left;
+	padding:40px 0 20px 0;
+	background:url("../images/main_bg_title.gif") no-repeat 0 40px;
+}
+/* h2
+---------------------*/
+#Main h2{
+	padding:25px 0 23px 0;
+	background:url("../images/main_bg_dotline.gif") repeat-x 0 100%;
+}
+#Main h3.title{
+	padding:23px 0 0 0;
+	background:url("../images/main_bg_ttlbar.gif") no-repeat 50% 0;
+}
+
+/*-------------------------------------
+Side
+---------------------------------------*/
+#Side{
+	width:200px;
+	float:right;
+	padding:40px 0 0 0;
+}
+
+/* LicalNavi
+---------------------*/
+#Side div#LocalNavi{
+	margin:0 0 42px 0;
+	background:url("../images/side_bg_naviline.gif") no-repeat 0 0;
+}
+#Side div#LocalNavi p{
+	padding:27px 0 22px 0;
+}
+#Side div#LocalNavi ul{
+	padding:1px 0 0 0;
+	background:url("../images/main_bg_dotline.gif") repeat-x 0 0;
+}
+#Side div#LocalNavi ul li{
+	padding:0 0 1px 0;
+	letter-spacing:0;
+	background:url("../images/main_bg_dotline.gif") repeat-x 0 100%;
+}
+#Side div#LocalNavi ul li a{
+	display:block;
+	padding:12px 6px;
+	text-decoration:none;
+}
+#Side div#LocalNavi ul li a:hover,
+#Side div#LocalNavi ul li.active a{
+	background:url("../images/side_bg_grey.gif");
+}
+#Side div#LocalNavi ul li a span{
+	display:block;
+	padding:0 0 0 11px;
+	background:url("../images/side_ico_arrow.gif") no-repeat 0 7px;
+}
+#Side div#LocalNavi ul li a:hover span,
+#Side div#LocalNavi ul li.active a span{
+	background:url("../images/side_ico_arrow_on.gif") no-repeat 0 7px;
+}
+
+/* section
+---------------------*/
+#Side div.section{
+	width:200px;
+}
+#Side div.section h3{
+	width:200px;
+}
+#Side div.section p{
+	width:200px;
+	font-size:84%;
+	padding:10px 0 0 0;
+}
+#Side div.section ul{
+	width:200px;
+	padding:0 0 33px 0;
+}
+#Side div.section ul li{
+	padding:10px 0 0 0;
+}
+
+/*-------------------------------------
+Common
+---------------------------------------*
+/* pagetop
+---------------------*/
+p.pagetop{
+	clear:both;
+	text-align:right;
+}
+
+/* form
+---------------------*/
+input.input-usually,
+textarea.input-usually{
+	font-size:100%;
+	padding:5px;
+	border:1px solid #CECECE;
+	background:#FFFFFF;
+}
+input.input-focus,
+textarea.input-focus{
+	border:1px solid #CECECE;
+	background:#FFFBD7;
+}
+
+
+/*-----------------------------------------------------
+Footer
+-------------------------------------------------------*/
+#Footer{
+	width:100%;
+	background:url("../images/main_bg_dotline.gif") repeat-x 0 0;
+}
+.footer-inside{
+	width:920px;
+	height:110px;
+	margin:0 auto;
+	padding:17px 7px;
+}
+/* FooterNavi
+---------------------*/
+#Footer ul#FooterNavi{
+	height:11px;
+	background:url("../images/main_bg_heightline.gif") repeat-y 0 0;
+}
+#Footer ul#FooterNavi li{
+	float:left;
+	line-height:1;
+	font-size:84%;
+	padding:0 15px;
+	background:url("../images/main_bg_heightline.gif") repeat-y 100% 0;
+}
+
+/* 
+---------------------*/
+/*110907ukishima*/
+#Footer ul.bnr{
+	float:right;
+	padding-top:10px;
+}
+#Footer ul.bnr li{
+	float:left;
+	padding:2px;
+	margin:0 0 0 3px;
+	border:1px solid #E6E6E6;
+	display:inline;
+}
+
+/* others
+---------------------*/
+#Footer p{
+	padding:45px 0 9px 0;
+}
+#Footer address{
+}
+.global_button{
+	background:url("../images/global_button.png");
+	width:152px;
+	height:36px;
+	color:#fff;
+	line-height:36px;
+	text-align:center;
+	font-size:16px;
+	border:none;
+	cursor:pointer;
+	text-decoration: none !important;
+	color: #FFF !important;
+	display: block;
+}
+.global_button:hover{
+	background:url("../images/global_button_hover.png");
+}
+.paginator .pageitem{
+	padding: 0 5px;
+}
+.paginator .current {
+	color: #D41E24;
+	font-weight: bold;
+}

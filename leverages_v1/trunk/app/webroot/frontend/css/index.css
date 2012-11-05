@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+/*-----------------------------------------------------
+Common
+-------------------------------------------------------*/
+#Content{
+	/*background:url("../images/body_bg_main.jpg") repeat-x 0 250px;*/
+	background:url("../images/body_bg_main1.jpg") repeat-x 0 390px;
+}
+#Main{
+	background:none;
+}
+#Main div.section{
+	margin:0 0 50px 0;
+	font-size:84%;
+}
+#Main div.title{
+	width:679px;
+	height:18px;
+	position:relative;
+	padding:0 0 10px 1px;
+	background:url("../images/main_bg_ttlbar.gif") no-repeat 0 100%;
+}
+#Main div.title h2{
+	position:absolute;
+	top:0;
+	left:0;
+	padding:0;
+}
+#Main div.title p{
+	position:absolute;
+	top:-4px;
+	right:0;
+}
+
+/* Flash
+---------------------------------------*/
+#Flash{
+	height:390px;
+	background:url("../images/main_bg_dotline.gif") repeat-x 0 100%;
+}
+
+/* Our Field
+---------------------------------------*/
+#Main div#our{
+	width:680px;
+	overflow:hidden;
+	_zoom:1;
+}
+/* section-inside */
+#Main div#our div.section-inside{
+	float:left;
+	width:316px;
+	display:inline;
+	margin:28px 0 0 0;
+}
+#Main div#our div.section-inside.odd{
+	margin:28px 20px 0 0;
+}
+#Main div#our div.section-inside p{
+	float:left;
+	padding:0 14px 0 0;
+}
+#Main div#our div.section-inside p img{
+	border:1px solid #E3E3E3;
+}
+#Main div#our div.section-inside p a:hover img{
+	filter: alpha(opacity=70);
+	-moz-opacity:0.7;
+	opacity:0.7;
+}
+#Main div#our div.section-inside dl{
+	width:210px;
+	float:left;
+}
+#Main div#our div.section-inside dl dt{
+	padding:10px 0;
+}
+#Main div#our div.section-inside dl dd{
+}
+
+/* news
+---------------------------------------*/
+#Main div#news{
+	width:680px;
+}
+#Main div#news ul{
+	padding:8px 0 0 0;
+}
+#Main div#news ul li{
+	overflow:hidden;
+	padding:15px 0 0 0;
+	_zoom:1;
+}
+#Main div#news ul li em{
+	width:70px;
+	float:left;
+	font-style:normal;
+}
+#Main div#news ul li span{
+	width:540px;
+	float:right;
+}
+#Main div#news ul li img{
+	float:left;
+}

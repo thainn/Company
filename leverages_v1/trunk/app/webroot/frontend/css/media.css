@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+/*-----------------------------------------------------
+section
+-------------------------------------------------------*/
+#Main div.section{
+	margin:40px 13px 0;
+}
+/* text */
+#Main div.section h3,
+#Main div.section p.text{
+	width:398px;
+	float:left;
+}#Main div.section h3{
+	padding:0 0 20px 0;
+}
+#Main div.section p.text{
+	padding:0 0 15px 0;
+	line-height:1.8;
+}
+/* fig */
+#Main div.section ul li.fig01{
+	float:right;
+	display:inline;
+	margin:-60px 0 15px 0;
+}
+#Main div.section ul li.fig02{
+	clear:both;
+	padding:0 0 40px 0;
+	text-align:center;
+}
+
+/* section-inside */
+#Main div.section div.section-inside{
+	clear:both;
+	padding:18px 0 10px 0;
+}
+#Main div.section div.section-inside p{
+	float:left;
+	padding:0 14px 0 0;
+}
+#Main div.section div.section-inside dl{
+}
+#Main div.section div.section-inside dl dt{
+	padding:5px 0;
+}

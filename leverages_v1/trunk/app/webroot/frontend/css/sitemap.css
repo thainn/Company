@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+/*-----------------------------------------------------
+info
+-------------------------------------------------------*/
+#Main div#info{
+	margin:40px 13px 30px 13px;
+	overflow:hidden;
+	line-height:1.8;
+	_zoom:1;
+}
+#Main div#info h3,
+#Main div#info p.text1{
+	width:415px;
+	float:left;
+}
+#Main div#info p.text1{
+	padding:20px 0 30px 0;
+}
+#Main div#info p.text2{
+	width:405px;
+	float:right;
+	padding:15px 0;
+}
+#Main div#info p.fig1{
+	float:right;
+	padding:6px 0 0 0;
+}
+#Main div#info p.fig2{
+	clear:both;
+	float:left;
+}
+
+/*-----------------------------------------------------
+Our Field
+-------------------------------------------------------*/
+#Main div#our{
+	clear:both;
+	width:650px;
+	margin:0 auto;
+	overflow:hidden;
+	_zoom:1;
+}
+/* section-inside */
+#Main div#our div.section-inside{
+	float:left;
+	width:311px;
+	display:inline;
+	margin:28px 0 0 0;
+}
+#Main div#our div.section-inside.odd{
+	margin:28px 20px 0 0;
+}
+#Main div#our div.section-inside p{
+	float:left;
+	padding:0 14px 0 0;
+}
+#Main div#our div.section-inside p img{
+	border:1px solid #E3E3E3;
+}
+#Main div#our div.section-inside p a:hover img{
+	filter: alpha(opacity=70);
+	-moz-opacity:0.7;
+	opacity:0.7;
+}
+#Main div#our div.section-inside dl{
+	width:200px;
+	float:left;
+}
+#Main div#our div.section-inside dl dt{
+	padding:10px 0;
+}
+#Main div#our div.section-inside dl dd{
+	font-size:84%;
+}
+
+/*-----------------------------------------------------
+sitemap
+-------------------------------------------------------*/
+div.section{
+	padding:10px 20px;
+}
+
+dl.sitemap dt{
+	font-weight:bold;
+	border-left: #900 5px solid;
+	padding-left:3px;
+	margin-top:10px;
+	margin-bottom:5px;
+}
+
+dl.sitemap dd{
+	padding-left:15px;
+	list-style-type:circle;
+}
+

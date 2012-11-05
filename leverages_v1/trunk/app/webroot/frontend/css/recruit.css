@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+/*-----------------------------------------------------
+info
+-------------------------------------------------------*/
+#Main div#info{
+	margin:40px 13px 30px 13px;
+	overflow:hidden;
+	line-height:1.8;
+	_zoom:1;
+}
+#Main div#info h3,
+#Main div#info p.text1{
+	width:415px;
+	float:left;
+}
+#Main div#info p.text1{
+	padding:20px 0 30px 0;
+}
+#Main div#info p.text2{
+	width:405px;
+	float:right;
+	padding:15px 0;
+}
+#Main div#info p.fig1{
+	float:right;
+	padding:6px 0 0 0;
+}
+#Main div#info p.fig2{
+	clear:both;
+	float:left;
+}
+
+/*-----------------------------------------------------
+Our Field
+-------------------------------------------------------*/
+#Main div#our{
+	clear:both;
+	margin:0 auto;
+	overflow:hidden;
+	_zoom:1;
+}
+/* section-inside */
+#Main div#our div.section-inside{
+	float:left;
+	width:321px;
+	display:inline;
+	margin:28px 0 0 0;
+}
+#Main div#our div.section-inside.odd{
+	margin:28px 20px 0 0;
+}
+#Main div#our div.section-inside p{
+	float:left;
+	padding:0 14px 0 0;
+}
+#Main div#our div.section-inside p img{
+	border:1px solid #E3E3E3;
+}
+#Main div#our div.section-inside p a:hover img{
+	filter: alpha(opacity=70);
+	-moz-opacity:0.7;
+	opacity:0.7;
+}
+#Main div#our div.section-inside dl{
+	width:321px;
+	float:left;
+}
+#Main div#our div.section-inside dl dt{
+	padding:10px 0;
+}
+#Main div#our div.section-inside dl dt a{
+	background:url("../images/contents_ico_arrow.gif") no-repeat scroll 0 50% transparent;
+	padding:0 0 0 8px
+}
+#Main div#our div.section-inside dl dd{
+	font-size:84%;
+	padding:3px;
+	background-color: #F4F4F4;
+border: 1px solid #EEE;
+	height:70px;
+	overflow:hidden
+}
+#Main div#our div.section-inside dl dd:hover{
+	background:#fff
+}
+.recruit{
+background: url("../images/recruit.png") no-repeat 100% 0;
+}
+.button{
+	padding:5px;
+	border:1px solid #ccc;
+	background:#008888;
+
+}
+ a.button{
+	color:#fff;
+	text-decoration:none;
+	font-size:14px
+}
+.button:hover{
+	background:#fff;
+	color:#008888;
+	border:none
+ }
+.btns{
+	margin-top:10px
+}
+.jobinput{
+	width:300px
+}
+.tbapplyjob td{
+	vertical-align:middle
+}#Content h1.news{
+	background:url("../images/news/bg_title.gif") no-repeat 100% 0;
+}
+
+#Main div.section ul{
+	padding:8px 0 0 0;
+}
+#Main div.section ul li{
+	overflow:hidden;
+	padding:14px;
+	_zoom:1;
+}
+#Main div.section ul li.even{
+	background:url("../images/news/bg_grey.jpg");
+}
+#Main div.section ul li em{
+	width:80px;
+	float:left;
+	font-style:normal;
+}
+#Main div.section ul li span{
+	width:560px;
+	float:right;
+}
+#Main div.section ul li img{
+	float:left;
+}

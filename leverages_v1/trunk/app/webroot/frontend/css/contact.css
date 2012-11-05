@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+/*-----------------------------------------------------
+Common
+-------------------------------------------------------*/
+#Content h1.inquiry{
+	background:url("../images/contact/bg_title.gif") no-repeat 100% 0;
+}
+#Side{
+	padding:100px 0 0 0;
+	background:url("../images/contact/side_bg_naviline.gif") no-repeat 0 40px;
+}
+
+/*-----------------------------------------------------
+table
+-------------------------------------------------------*/
+#Main div.section table{
+	width:670px;
+	margin:0 5px;
+}
+#Main div.section table th{
+	width:75px;
+	padding:7px 0 0 0;
+	text-align:left;
+
+}
+#Main div.section table td{
+	padding:5px 0 5px 30px;
+	background:url("../images/contact/main_bg_darkheightline.gif") repeat-y 0 0;
+	vertical-align:middle
+}
+#Main div.section table td input{
+	width:280px;
+}
+#Main div.section table td.long input,
+#Main div.section table td textarea{
+	width:460px;
+}
+/* btn */
+#Main div.section p.btn{
+	margin:0 60px 30px 150px;
+	padding:0;
+	text-align:center;
+}
+#Main div.section ul.btn{
+	height:36px;
+	margin:0 60px 30px 150px;
+	padding:0 0 0 80px;
+}
+#Main div.section ul.btn li{
+	float:left;
+	padding:0 20px 0 0;
+}
+#Main div.section p.thanks{
+	padding:40px 0;
+	text-align:center;
+}
+
+/* contact
+---------------------------------------*/
+#Main div.section div.contact{
+	margin:20px 20px 30px 20px;
+	padding:15px 0 0 0;
+	background:url("../images/contact/main_bg_sectioninside.jpg");
+}
+#Main div.section div.contact h4{
+	padding:0 13px 15px 13px;
+	background:url("../images/contact/main_bg_line.gif") repeat-x 0 100%;
+}
+#Main div.section div.contact p{
+	padding:10px 15px;
+	line-height:2;
+}
+#Main div.section div.contact p img{
+	padding:5px 0 0 10px;
+}
+.error{
+	font-size: 11px;
+	color: red;
+}
