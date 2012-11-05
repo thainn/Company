@@ -4,57 +4,88 @@
  *
  * @author             Nguyen Ngoc Thai
  * @date created       10/19/2012
- * @modified by        Minh Hai Truong
+ * @modified by        Truong Minh Hai 
  * @date modified      10/26/2012
  *
  * Manage news' information
  */
+
 class NewsController extends AppController {
 
     var $uses = array('News', 'news');
     var $helpers = array('Time');
     
-    function  index()
-    {
-        $this->set('page_title','Danh sách tin tức');
-        $time=date('Y-m-d H:i:s',time());
+    
+    /*
+     * Frontend only.
+    * Listing news item at frontend
+    *
+    */
+    function index() {
+        $this->set('page_title', 'Danh sách tin tức');
+        $time=date('Y-m-d H:i:s', time());
+        
         $this->paginate = array(
             'conditions' => array('status' => '0','publishdate <= '=>$time),
             'limit'         => Configure::read('LIMIT_NEWS'),
             'order' => array('publishdate' => 'desc')                                 
         );
-        $data = $this->paginate("news",array());
+        $data = $this->paginate("news", array());
+        
+        //check current page whether larger than max page or not.
+        if (isset($this->params['paging']['news']['options']['page'])) {
+			if ($this->params['paging']['news']['options']['page'] > $this->params['paging']['news']['pageCount']) {
+		         return $this->redirect(array('action' => 'index',
+		                'controller'=>'news',
+		                'page'=>$this->params['paging']['news']['pageCount']));
+	        }
+        }
         $this->set('data',$data);
     }
     
-    function  view($id)
-    {
-         
-          $id = intval($id);
-         $data = $this->news->query("select title,content from news where id={$id} and status=0 and publishdate <= now()");
-         if($data){
-              $this->set('page_title','Chi tiết tin tức');
-              $this->set('data',$data[0]['news']);
-         }else
-         {
-              $this->redirect('/error404/');
+    
+    /*
+     * Frontend only.
+     * View a news item detail information
+     *
+     * $id: id of the news item.
+    */
+    
+    function view($id) {
+    	$id = intval($id);
+    	$data = $this->news->query("select title, content from news where id = {$id} and status=0 and publishdate <= now()");
+    	if($data) {
+    		$this->set('page_title', 'Chi tiết tin tức');
+    		$this->set('data',$data[0]['news']);
+         } else {
+         	$this->redirect('/error404/');
          }
     }
     
     
     /*
-     * listing all of the news item
+    * listing all of the news item
     * 
     *
     */
     
     public function admin_index() {
-         $this->paginate = array('conditions' => array('`status` ' => '0'),
+    	
+   		App::uses('AppHelper', 'View/Helper');
+        $this->paginate = array('conditions' => array('`status` ' => '0'),
 					            'limit' => Configure::read('PAGINATION_LIMIT'),
-					        	'order' => array('regdate' => 'DESC')
+					        	'order' => array('id' => 'DESC')
         					);
         $data = $this->paginate("News");
-        
+      
+        //check current page whether larger than max page or not.
+        if (isset($this->params['paging']['News']['options']['page'])) {
+	        if ($this->params['paging']['News']['options']['page'] > $this->params['paging']['News']['pageCount']) {
+	        	return $this->redirect(array('action' => 'index',
+	        			'controller'=>'news',
+	        			'page'=>$this->params['paging']['Recruit']['pageCount']));
+	        }
+        }
         $this->set("items", $data);
         
         if($this->request->is('ajax'))
@@ -85,9 +116,8 @@ class NewsController extends AppController {
             }
 // end validate title is empty          
   
-			
-           
             $this->News->create();
+           $this->request->data['content'] = trim($this->request->data['content']);
             if ($this->News->save($this->request->data)) {
             	$this->Session->setFlash(Configure::read('UPDATE_SUCCESS'));
                 $this->redirect(array('action' => 'index'));
@@ -117,9 +147,18 @@ class NewsController extends AppController {
     		$flash = '- '.Configure::read('ERR_TITLE_BLANK').'<br />';
     	}
     
-    	if(!$this->request->data['publishdate']){ // validate title is empty
+    	if(!$this->request->data['publishdate']){ // validate publish date is empty
     		$result = false;
     		$flash .= '- '.Configure::read('ERR_PUBLISHDATE_BLANK').'<br />';
+    	}
+    	
+    	if($this->request->data['url']){// validate url is valid or not.
+    		$url = 'http://'.str_replace('http://', '', $this->request->data['url']);
+    		
+    		if (!preg_match("#^http://[a-z0-9-_.]+\.[a-z]{2,4}#i", $url)) {
+    			$result = false;
+    			$flash .= '- '.Configure::read('ERR_NOTVALID_URL').'<br />';
+    		}
     	}
     	if(!$result) $this->Session->setFlash($flash);
     	return $result;
@@ -130,19 +169,21 @@ class NewsController extends AppController {
     * $id: id of the edited item.
     *
     */
-    
-    
     public function admin_edit($id){
     	$this->News->id = $id;
-    	
+
     	if ($this->request->is('get')) {
     		$data = $this->News->read();
-    		 
+    		
+			if (!$data || $data['News']['status']) {
+			   $this->redirect(array( 'controller' => 'news',
+					 				  'action' => 'index'));
+			   return;
+			  }
     		$this->_formatOutputData(&$data['News']);
-    
     		$this->set('item',  $data);
     	}else {
-    		$this->_formatInputData();
+    		$this->_formatInputData(false);
    
     		$validresult = $this->_validInput();
     		if(!$validresult){
@@ -153,7 +194,7 @@ class NewsController extends AppController {
     			
     			return ;
     		}
-    		
+    		 $this->request->data['content'] = trim($this->request->data['content']);
     		if ($this->News->save($this->request->data)) {
     			$this->Session->setFlash(Configure::read('UPDATE_SUCCESS'));
     			$this->redirect(array('action' => 'index'));
@@ -173,15 +214,17 @@ class NewsController extends AppController {
     * $id: id of the listing item.
     *
     */
-    
-    public function admin_view($id = null) {
+   public function admin_view($id = null) {
         if ($id != null) {
-
             $data = $this->News->findById($id);
-            $this->set('item', $data);
+           
+            if ($data) {
+             	$this->set('item', $data);
+             	return;
+            }
         }
+        $this->redirect(array('controller' => 'news', 'action' => 'index'));
     }
-
     /*
     * set news item's status to disable (logical delete).
     * $id: id of the deleted item.
@@ -266,8 +309,7 @@ class NewsController extends AppController {
     *
     */
     
-    private function _formatInputData(){
-    	
+    private function _formatInputData($flagadd = true){
     	//parse publishdate to db datetime - begin
     	if($this->request->data['publishdate']){
     		$temp = explode(' ', $this->request->data['publishdate']);
@@ -279,8 +321,10 @@ class NewsController extends AppController {
     
     
     	// generate create time - beign
-    	$this->request->data['regdate'] = date('Y-m-d', time());
+    	if($flagadd)
+    		$this->request->data['regdate'] = date('Y-m-d H:m', time());
     	// generate create time - end
-    	$this->request->data['title'] = strip_tags($this->request->data['title']);
+    	
+    	$this->request->data['title'] = htmlentities(trim($this->request->data['title']), ENT_QUOTES | ENT_IGNORE, "UTF-8");
     }
 }

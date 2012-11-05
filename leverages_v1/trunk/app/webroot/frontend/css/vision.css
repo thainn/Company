@@ -6,6 +6,7 @@
 	overflow:hidden;
 	line-height:1.8;
 	_zoom:1;
+	text-align: justify;
 }
 
 .v_img01 {
@@ -118,5 +119,6 @@ html .clearFix{
 }
 .philosophy_content{
 	padding-top:30px;
-	width:350px;width:380px;overflow:hidden
+	width:350px;width:380px;overflow:hidden;
+text-align:justify
 }

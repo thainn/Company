@@ -10,7 +10,13 @@
 * SitemapsController display sitemap of company
 */
 class SitemapsController extends AppController {
+	
+	/*
+	 * Frontend only.
+	* Display Sitemap static page.
+	*
+	*/
     public function index() {
-	$this->set('page_title','Site map');
+		$this->set('page_title','Site map');
     }
 }

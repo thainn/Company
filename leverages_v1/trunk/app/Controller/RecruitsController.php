@@ -2,7 +2,7 @@
 /**
  * Leverages Vietnam Co., Ltd
  *
- * @author             Minh Hai Truong
+ * @author             Truong Minh Hai 
  * @date created       10/19/2012
  * @date modified      10/26/2012
  *
@@ -10,57 +10,107 @@
  */
 
 class  RecruitsController extends AppController {
-	var $uses=array('Recruit','Candidate');
+	var $uses=array('Recruit', 'Candidate');
 	var $helpers = array('Time');
 	public $components = array('RequestHandler', 'Email');
 
-	function  index(){
-		$this->set('page_title','Tuyển dụng');
-		$time = date('Y-m-d H:i:s',time());
+	
+	
+	/*
+	 * Frontend only.
+	* Display frontend recruit page
+	*
+	*/
+	function index() {
+		$this->set('page_title', 'Tuyển dụng');
+		$time = date('Y-m-d H:i:s', time());
 
 		$this->paginate = array(
-				'conditions' => array('status' => '0','startdate <= '=>$time),
-				'limit'         => Configure::read('LIMIT_RECRUIT'),
-				'order' => array('startdate' => 'desc')
-		);
+								'conditions' => array(	'status' => '0', 
+														'startdate <= '=>$time, 
+														'or' => array('enddate >=' => $time, 'enddate'=>'0000-00-00 00:00:00')
+												),
+								'limit'      => Configure::read('LIMIT_RECRUIT'),
+								'order' 	 => array('startdate' => 'desc')
+							);
 		$data = $this->paginate("Recruit");
+		
+		//check current page whether larger than max page or not.
+		if(isset($this->params['paging']['Recruit']['options']['page']))
+			if($this->params['paging']['Recruit']['options']['page'] > $this->params['paging']['Recruit']['pageCount']){
+			   return $this->redirect(array('action' => 'index',
+					  'controller'=>'recruits',
+					  'page'=>$this->params['paging']['Recruit']['pageCount']));
+			}
 		$this->set('items', $data);
 	}
 	
-	function  se(){
+	/*
+	 * Frontend only.
+	 * Display "Software Engineer" static page.
+	 *
+	*/
+	function se() {
 		$this->set('page_title','Yêu cầu tuyển dụng Software engineer');
 	}
-	function  bse()
-	{
+	
+	
+	/*
+	 * Frontend only.
+	* Display "BSE" static page.
+	*
+	*/
+	function bse() {
 		$this->set('page_title','Yêu cầu tuyển dụng Software BSE');
 	}
 
-	function view($id=''){
-
+	/*
+	 * Frontend only.
+	 * Display a recruit detail
+	 * $id: the recruitment's id.
+	*/
+	function view($id = ''){
 		$id = intval($id);
-		$data = $this->Recruit->query("select id,title,content from recruits where id={$id} and status=0 and startdate <= now()");
+		
+		$query = "select id, title, content "
+				 ."from recruits "
+				 ."where id= {$id} and status=0 and startdate <= now() and (enddate >= now() or enddate = '0000-00-00 00:00:00' )";
+		
+		$data = $this->Recruit->query($query);
 		if($data){
 			$item = $data[0]['recruits'];
 			$this->set('page_title',$item['title']);
 			$this->set('data',$item);
-		}else
-		{
+		}else {
 			$this->redirect('/error404/');
 		}
 	}
-function applyjob($id = null) {
-
-
+	
+	/*
+	 * Frontend only.
+	 * apply a recruitment.
+	 * $id: the recruitment's id.
+	*/
+	
+	function applyjob($id = null) {
         $error = 0;
-        
         if ($id == null) {
+            $this->set('page_title', 'Tuyển dụng');
+            $time = date('Y-m-d H:i:s', time());
+            $this->paginate = array(
+                'conditions' => array('status' => '0', 'startdate <= ' => $time),
+                'limit' => Configure::read('LIMIT_RECRUIT'),
+                'order' => array('startdate' => 'desc')
+            );
+            $data = $this->paginate("Recruit");
+            $this->set('items', $data);
             $this->redirect(array('controller' => 'recruits', 'action' => 'index'));
         }
 
         $data = $this->Recruit->findById($id);
         $this->set('recruit', $data);
         $id = intval($id);
-        $data = $this->Recruit->query("select title from recruits where id={$id} and status=0 and startdate <= now()");
+        $data = $this->Recruit->query("select title from recruits where id={$id} and status=0 and startdate <= now() and (enddate>=now() or enddate='0000-00-00 00:00:00')");
 
 
         if ($data) {
@@ -70,89 +120,93 @@ function applyjob($id = null) {
             $this->set('data', $item);
             if ($this->request->is('post')) {
 
-
-
+                $count = $count + 1;
+                $this->Session->write('applyJob', $count);
                 $finfo = finfo_open(FILEINFO_MIME_TYPE);
-
                 $this->Candidate->create();
                 $this->request->data['job_id'] = $id;
-                //$this->request->data['senddate'] = date('Y-m-d H:i', time());
+                $this->request->data['senddate'] = date('Y-m-d H:i', time());
                 $current_date = date('Y-m-d  H:i:s');
-                //$this->request->data['senddate'] = $current_date;
                 $this->request->data['flag'] = 0;
                 $this->request->data['checked'] = 0;
                 $filename = $_FILES['file']['name']; // tên file upload -> save to database
+                $buffName = $filename;
+                $filename = time() . '-' . $filename;
                 $this->request->data['url'] = $filename;
-
-                if ($this->request->data['sexname'] = 'nam') {
-                    $this->request->data['sex'] = 1;
-                }
-                else
-                    $this->request->data['sex'] = 0;
                 $mime = finfo_file($finfo, $_FILES['file']['tmp_name']);
                 finfo_close($finfo);
                 $array_header = Configure::read('FILE_TYPE_UPLOAD');
+
                 if (!in_array($mime, $array_header)) {
                     $error = 1;
                     $this->set('errorFile', 'Chỉ chấp nhận file .doc, .xls, .pdf');
                 }
-
-                if (empty($this->request->data['fullname'])) {
+                    $fullname=trim($this->request->data['fullname']);
+                if (empty($fullname)) {
                     $this->set('enterFullname', 'Vui lòng nhập họ tên');
                     $error = 1;
                 }
-               
-                  
-                $formatEmail='/^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/';
-                
-               if ($this->request->data['email'] ==$formatEmail) {
+
+                $birthday = $this->request->data['birthday'];
+                $day = substr($birthday, 0, 2);
+                $month = substr($birthday, 3, -5);
+                $year = substr($birthday, 6, 10);
+
+                $this->request->data['birthday'] = $year . '/' . $month . '/' . $day;
+
+
+                $formatEmail = '/^[a-zA-Z0-9]+[a-zA-Z0-9_.-]+[a-zA-Z0-9_-]+@[a-zA-Z0-9]+[a-zA-Z0-9.-]+[a-zA-Z0-9]+.[a-z]{2,4}$/';
+
+                if ($this->request->data['email'] == $formatEmail) {
                     $this->set('enterEmail', ' Email không đúng định dạng');
                     $error = 1;
                 }
-                
-                   if (empty($this->request->data['email'])) {
-                    $this->set('enterEmail', 'Vui lòng nhập Email');
+
+                if (empty($this->request->data['email'])) {
+                    $this->set('enterEmail', 'Vui lòng nhập email');
                     $error = 1;
                 }
-               
-                $formaNumber='/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/';
-                
-               
-                
-                 if ($this->request->data['phone'] ==$formaNumber) {
-                    $this->set('enterPhone', ' Number chứa toàn kí tự số');
+
+                $formaNumber = '/^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/';
+
+                //var_dump($this->request->data);
+
+                if ($this->request->data['phone'] == $formaNumber) {
+                    $this->set('enterPhone', ' Phone chứa toàn kí tự số');
                     $error = 1;
                 }
-                   if (empty($this->request->data['phone'])) {
-                    $this->set('enterPhone', 'Vui lòng nhập Phone');
+                if (empty($this->request->data['phone'])) {
+                    $this->set('enterPhone', 'Vui lòng nhập phone');
                     $error = 1;
                 }
-                
-                 
-                
-                    if ($this->request->data['senddate'] == $formaNumber) {
-                    $this->set('enterSendDate', ' năm sinh chứa toàn kí tự số');
+
+
+
+                if ($this->request->data['birthday'] == $formaNumber) {
+                    $this->set('enterSendDate', ' Năm sinh chứa toàn kí tự số');
                     $error = 1;
                 }
-                  if (empty($this->request->data['senddate'])) {
-                      
+                if (empty($this->request->data['birthday'])) {
+
                     $this->set('enterSendDate', 'Vui lòng nhập Năm sinh');
                     $error = 1;
                 }
+                    $introduce=trim($this->request->data['introduce']);
+              
                 
-                  if (empty($this->request->data['introduce'])) {
+                if (empty($introduce)) {
                     $this->set('enterIntroduce', 'Vui lòng nhập Giới thiệu bản thân');
                     $error = 1;
                 }
-             
-                if($error==1)
-                {
-                   
-                   $this->set('success', 'middle');
-                     return;
+                $this->set('dataEoor',$this->request->data);
+                if ($error == 1) {
+                    
+                    $this->set('success', 'middle');
+                    
+                    return;
                 }
-
-
+                 
+              
                 if ($error == 0) {
                     if ($this->Candidate->save($this->request->data)) {
                         move_uploaded_file($_FILES['file']['tmp_name'], Configure::read('PATH_UPLOAD_CV') . $filename);
@@ -163,47 +217,94 @@ function applyjob($id = null) {
                             'username' => 'tanngocson854@gmail.com',
                             'password' => 'ngocthai',
                         );
-
                         $this->Email->delivery = 'smtp';
+                         $this->Email->send = 'debug';
+                         $this->Email->sendAs = 'both';
+                         $email=$this->request->data['email'];
+                       $this->Email->to = $email;
+                        $this->Email->subject = 'Leverages.com.vn Send CV';
+                        $this->Email->from = 'Send CV <noreply@example.com>';
+                      //  Configure::read('baseurl')
+                         $this->Email->send(Configure::read('ReplyEmail_1'). '<b>'.$this->request->data['fullname'].'</b>'. Configure::read('ReplyEmail_2'));
                         $this->Email->attachments = array(
-                            $filename => 'files/' . $filename);
-                        $this->Email->send = 'debug';
+                            $buffName => 'files/' . $filename);
                         $this->Email->to = 'thainn@leverages.jp';
                         $this->Email->subject = 'Leverages.com.vn Send CV';
                         $this->Email->from = 'Send CV <noreply@example.com>';
-                        if ($this->Email->send('Công Ty Leverages Cảm ơn bạn đã quan tâm đến công ty ')) {
-                            // $this->Session->setFlash('Simple email sent');
+                        $content='Bạn '.$this->request->data['fullname'].Configure::read('adminEmai');
+                        $position= $this->Recruit->findById($id);
+                        $content.='<br/> Họ tên : ' .$fullname ;
+                        $content.='<br/> Vị trí : ' .$position['Recruit']['title'] ;
+                        $content.='<br/> Email :  ' .$this->request->data['email'] ;
+                        $content.='<br/> Điện thoại :  ' .$this->request->data['phone'] ;
+                         $content.='<br/> Ngày tháng năm sinh :  ' .$birthday;
+                         $content.='<br/> Giới thiệu bản thân :  ' .$introduce ;
+                         $content.='<br/> Ngày gửi :  ' . date('d-m-Y H:i',  strtotime($this->request->data['senddate']));
+                        if ($this->Email->send($content)) {
+                            // $this->Session->setFlash('Thông tin của bạn đã được gửi đi thành công. ');
                             $this->set('success', 'true');
+                            $count = 0;
+                            $this->Session->write('applyJob', $count);
+                            $this->request->data['email'] = "sadfsdfsdf";
+                            $this->redirect(array('controller' => 'recruits', 'action' => 'applyjobBuffer', $id));
+                            //   $this->redirect(array('controller'=>'recruits','action'=>'applyjob',$id));
                         } else {
+
+                            $count = 0;
+                            $this->Session->write('applyJob', $count);
+                            $this->Session->write('applyJob', '0');
+                            $this->Session->setFlash('Thông tin của bạn gửi đi bị lỗi. ');
                             $this->set('success', 'false');
                         }
                     }
                 }
             }
         } else {
+            $count = 0;
+            $this->Session->write('applyJob', $count);
 
-            $item['Recruit'] = $this->request->data;
-            $this->_formatOutputData(&$item['Recruit']);
+            $this->set('page_title', 'Tuyển dụng');
+            $time = date('Y-m-d H:i:s', time());
 
-            $this->set('item', $item);
-
-            $this->Session->setFlash('Đã xảy ra lỗi trong quá trình thêm bài viết.');
+            $this->paginate = array(
+                'conditions' => array('status' => '0', 'startdate <= ' => $time),
+                'limit' => Configure::read('LIMIT_RECRUIT'),
+                'order' => array('startdate' => 'desc')
+            );
+            $data = $this->paginate("Recruit");
+            $this->set('items', $data);
+            $this->redirect(array('controller' => 'recruits', 'action' => 'index'));
         }
     }
+
+    function applyjobBuffer($id = null) {
+        $this->Session->setFlash('Thông tin của bạn đã được gửi đi thành công. ');
+        $this->redirect(array('controller' => 'recruits', 'action' => 'applyjob', $id));
+    }
+	
 	/*
 	 * listing all of the recruitment item
 	*
 	*
 	*/
-
 	public function admin_index() {
+		App::uses('AppHelper', 'View/Helper');
 		$this->paginate = array('conditions' => array('`status` =' => '0'),
 				'limit' =>Configure::read('PAGINATION_LIMIT'),
-				'order' => array('created' => 'DESC')
+				'order' => array('id' => 'DESC')
 		);
 		$data = $this->paginate("Recruit");
+		
+		//check current page whether larger than max page or not.
+		if (isset($this->params['paging']['Recruit']['options']['page'])) {
+			if($this->params['paging']['Recruit']['options']['page'] > $this->params['paging']['Recruit']['pageCount']){
+			   return $this->redirect(array('action' => 'index',
+					  'controller'=>'recruits',
+					  'page'=>$this->params['paging']['Recruit']['pageCount']));
+			  }
+		}
+		
 		$this->set("items", $data);
-
 		if($this->request->is('ajax'))
 			$this->render('admin_index' , 'ajax');
 	}
@@ -260,12 +361,15 @@ function applyjob($id = null) {
 		 
 		if ($this->request->is('get')) {
 			$data = $this->Recruit->read();
-			 
+			if (!$data  || $data['Recruit']['status']){
+				$this->redirect(array( 'controller' => 'recruits',
+					 					'action' => 'index'));
+				return;
+			}
 			$this->_formatOutputData(&$data['Recruit']);
-
 			$this->set('item',  $data);
 		}else {
-			$this->_formatInputData();
+			$this->_formatInputData(false);
 
 			$validdata = $this->_validInput(); // valid input data
 			if(!$validdata){
@@ -298,12 +402,16 @@ function applyjob($id = null) {
 	*/
 
 	public function admin_view($id = null) {
-		if ($id != null) {
-
-			$data = $this->Recruit->findById($id);
-			$this->set('item', $data);
+	  	if ($id != null) {
+		   	$data = $this->Recruit->findById($id);
+		   	if ($data) {
+				$this->set('item', $data);
+				return;
+			}
 		}
-	}
+	  
+	  	$this->redirect(array('controller'=> 'recruits', 'action' => 'index'));
+	 }
 
 	/*
 	 * set recruitment's status to disable (logical delete).
@@ -374,6 +482,7 @@ function applyjob($id = null) {
 			$temp = explode(' ', $data['enddate']);
 			$date = explode('-', $temp[0]);
 			$data['enddate'] = $date[2].'/'.$date[1].'/'.$date[0];
+			if($data['enddate'] == '00/00/0000') $data['enddate'] = '';
 		}
 
 		if($data['created']){
@@ -390,7 +499,7 @@ function applyjob($id = null) {
 	*
 	*/
 
-	private function _formatInputData(){
+	private function _formatInputData($flagadd = true){
 		//parse to db datetime - begin
 		if($this->request->data['startdate']){
 			$temp = explode(' ', $this->request->data['startdate']);
@@ -408,10 +517,11 @@ function applyjob($id = null) {
 		//parse to db datetime - end
 
 		// generate create time - beign
-		$this->request->data['created'] = date('Y-m-d', time());
+		if($flagadd)
+			$this->request->data['created'] = date('Y-m-d H:m', time());
 		// generate create time - end
 		
-		$this->request->data['title'] = strip_tags($this->request->data['title']); 
+		$this->request->data['title'] = htmlentities(trim($this->request->data['title']), ENT_QUOTES | ENT_IGNORE, "UTF-8");
 	}
 
 	/*

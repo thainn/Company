@@ -37,28 +37,28 @@ swfobject.embedSWF("http://leverages.jp/images/index/preloader.swf", "FlashConte
 <p><a href="vision.html"><img src="<?php echo Configure::read('baseurl');?>frontend/images/main_img_our_profile.jpg" width="90" height="80" alt="" /></a></p>
 <dl>
 <dt><a href="<?php echo Configure::read('baseurl');?>visions/" style="font-size:12px">Profile</a></dt>
-<dd>Mục tiêu・Giới thiệu・Philosophy・会社Lịch sử phát triển。<br />「Win-Win」の精神のもと、社会的意義のある活動を行っていきます。</dd>
+<dd>Vision, tiểu sử công ty, quan niệm, phương châm doanh nghiệp với tinh thần “Win- win”, tham gia tích cực trong việc đóng góp vì Xã hội.</dd>
 </dl>
 <!-- .section-inside // --></div>
 <div class="section-inside">
 <p><a href="#"><img src="<?php echo Configure::read('baseurl');?>frontend/images/main_img_our_service.jpg" width="90" height="80" alt="" /></a></p>
 <dl>
 <dt><a href="<?php echo Configure::read('baseurl');?>services/" style="font-size:12px">Service</a></dt>
-<dd>営業、開発、マーケティングという同一リソースによって、IT、人材、メディアの3つの事業ドメインにおいて活動しております。</dd>
+<dd>Dựa vào sự đồng nhất về kinh doanh, phát triển, marketing, 3 lĩnh vực IT, nhân sự, media cùng nhau phát triển.</dd>
 </dl>
 <!-- .section-inside // --></div>
 <div class="section-inside odd">
 <p><a href="https://leverages.jp/partner/index.php"><img src="<?php echo Configure::read('baseurl');?>frontend/images/main_img_our_partnership.jpg" width="90" height="80" alt="" /></a></p>
 <dl>
 <dt><a href="news" style="font-size:12px">News</a></dt>
-<dd>Mô tả ngắn về tin tức của công ty</dd>
+<dd>Thông tin mới nhất từ công ty</dd>
 </dl>
 <!-- .section-inside // --></div>
 <div class="section-inside">
 <p><a href="<?php echo Configure::read('baseurl');?>recruits/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/main_img_our_recruit.jpg" width="90" height="80" alt="" /></a></p>
 <dl>
 <dt><a href="<?php echo Configure::read('baseurl');?>recruits/" style="font-size:12px">Recruit</a></dt>
-<dd>新卒採用・キャリア採用・エンジニア採用・長期インターンシップ。私たちと共に、次の時代を創っていきたい人を募集しています！</dd>
+<dd>Tuyển dụng sinh viên mới tốt nghiệp, kỹ sư, người có nguyện vọng chuyển việc. Công ty luôn sẵn sàng chào đón những cá nhân có cùng ý tưởng sáng tạo một thời đại mới.</dd>
 </dl>
 <!-- .section-inside // --></div>
 <!-- #our .section // --></div>

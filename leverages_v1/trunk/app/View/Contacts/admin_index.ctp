@@ -9,7 +9,50 @@ echo "<script type='text/javascript'>var baseurl = '" . Configure::read('baseurl
         </div>
         <div class="box-content">
             <div class='action'>
-                <a class="btn btn-danger" href="#" onclick="deleteallContacts();">
+                
+                         <?php
+        if($countGlobal==0)
+        {?>
+                <div align="center"> Hiện Chưa Có Dữ Liệu Nào </div>
+                
+            </div>
+
+           
+            <div class="pagination pagination-centered">
+
+                <?php
+                if ($lengthContact > Configure::read('LIMIT_CONTACT')) {
+                    // echo $this->Session->read('contactResult');
+                    ?>
+                    <ul>
+                        <li>  <?php echo $this->Paginator->prev('Trước ', array('rel' => ''), null, null); ?> </li>
+                        <li>  <?php echo "" . $this->Paginator->numbers() . ""; ?> </li>
+                        <li>   <?php echo $this->Paginator->next(' Sau ', null, null, array('class' => 'disabled')); 
+                     //  echo $this->here;
+                       //echo $this->params['Paginator'];
+                       // echo $this->Paginator->current();
+                        ?> </li>
+                    </ul>
+                <?php } ?>
+            </div>               
+        </div>    
+
+
+   
+
+
+
+    </div><!--/span-->
+
+</div><!--/row-->
+      <?php 
+      return;
+      }
+      ?>
+                <?php
+                    $pageCurrent=$this->Paginator->current();
+                ?>
+                <a class="btn btn-danger" href="#" onclick="deleteallContacts(<?php echo $pageCurrent;?>);">
                     Xóa
                 </a>
             </div>
@@ -38,12 +81,13 @@ echo "<script type='text/javascript'>var baseurl = '" . Configure::read('baseurl
                                     <input type='checkbox' name="cbID" id="cbID" class="case"  value=<?php echo $data['Contact']['id']; ?>>
                                 </div>
                             </td>
-                            <td><?php echo  strip_tags($data['Contact']['name']); ?></td>
+                            <td><?php echo  strip_tags($data['Contact']['name'],''); ?></td>
                             <td><?php
                     echo AppHelper::cutString($data['Contact']['content'], 100, '...')
                         ?></td>
                             <td class="center"> <?php
-                                echo date('d-m-Y H:i', strtotime($data['Contact']['send_date']));
+                             echo date('d-m-Y H:i',  strtotime($data['Contact']['send_date']));
+                            
 
                         ?> </td>
                             <td class="center">
@@ -70,6 +114,25 @@ echo "<script type='text/javascript'>var baseurl = '" . Configure::read('baseurl
                         </tr>
                     <?php } ?>
                 </tbody>
+                
+                
+                     <?php
+                        $result = $this->Session->flash();
+                        if ($result != null || $this->Session->read('contactResult')) {
+                            ?>
+                    <div id="flashMessage" class="message">Thay Đổi Thông Tin Thành Công</div>       
+                <script type='text/javascript'>
+            	$(document).ready(function(){
+            		setTimeout(function() {
+            			$("#flashMessage").fadeOut().remove();
+            		}, 5000);
+            	});
+              </script>
+                            <?php }
+                        ?>
+                
+               
+                
             </table>
             <div class="pagination pagination-centered">
 
@@ -91,14 +154,7 @@ echo "<script type='text/javascript'>var baseurl = '" . Configure::read('baseurl
         </div>    
 
 
-        <?php
-        if ($this->Session->read('contactResult') == '1') {
-            ?>
-
-            <div class="box-content1">	
-                <div class="valid_box">  Xóa Thành Công </div>
-            </div>
-        <?php }?>
+   
 
 
 

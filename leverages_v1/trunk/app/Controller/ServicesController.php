@@ -9,25 +9,51 @@
 *
 * ServicesController display services of company
 */
+
 class ServicesController extends AppController {
-    function index()
-    {
+    
+	/*
+	 * Frontend only.
+	* Display "Dịch vụ" static page.
+	*
+	*/
+	function index() {
         $this->set('page_title','Dịch vụ');
     }
-    function hc()
-    {
+    
+    /*
+     * Frontend only.
+    * Display "Human Capital Service" static page.
+    *
+    */
+    function hc() {
         $this->set('page_title','Dịch vụ Human capital');
     }
-    function media()
-    {
+    
+    /*
+     * Frontend only.
+    * Display "Media Service" static page.
+    *
+    */
+    function media() {
         $this->set('page_title','Dịch vụ truyền thông');
     }
-    function se()
-    {
+    
+    /*
+     * Frontend only.
+    * Display "System Engineering Service" static page.
+    *
+    */
+    function se() {
         $this->set('page_title','System engineering');
     }
-    function medical()
-    {
+    
+    /*
+     * Frontend only.
+    * Display "Medical Service" static page.
+    *
+    */
+    function medical() {
         $this->set('page_title','Dịch vụ medical');
     }
 }

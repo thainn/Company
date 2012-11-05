@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 
 <div id="Main"><!-- InstanceBeginEditable name="main" -->
-<h2 class="titlebar" style="font-size:16px;">Tin tức</h2>
+<h2 class="titlebar" style="font-size:14px;font-weight:bold">Tin tức</h2>
 
 <div class="section">
 <ul>

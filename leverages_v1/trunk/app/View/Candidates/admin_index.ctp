@@ -11,9 +11,55 @@
         <div class="box-header well" data-original-title>
             <h2><i class="icon-folder-open"></i> Danh sách ứng viên</h2>
         </div>
+        
+   
         <div class="box-content">
             <div class='action'>
-                <a class="btn btn-danger" href="#" onclick="deleteallCandidates();">
+                   <?php
+        if($countGlobal==0)
+        {?>
+                 <div align="center"> Hiện Chưa Có Dữ Liệu Nào </div>
+                
+            </div>
+
+           
+            <div class="pagination pagination-centered">
+
+                <?php
+                if ($lengthContact > Configure::read('LIMIT_CONTACT')) {
+                    // echo $this->Session->read('contactResult');
+                    ?>
+                    <ul>
+                        <li>  <?php echo $this->Paginator->prev('Trước ', array('rel' => ''), null, null); ?> </li>
+                        <li>  <?php echo "" . $this->Paginator->numbers() . ""; ?> </li>
+                        <li>   <?php echo $this->Paginator->next(' Sau ', null, null, array('class' => 'disabled')); 
+                     //  echo $this->here;
+                       //echo $this->params['Paginator'];
+                       // echo $this->Paginator->current();
+                        ?> </li>
+                    </ul>
+                <?php } ?>
+            </div>               
+        </div>    
+
+
+   
+
+
+
+    </div><!--/span-->
+
+</div><!--/row-->
+      <?php 
+      return;
+      }
+      ?>
+                
+                <?php
+                    $pageCurrent=$this->Paginator->current();
+                ?>
+                
+                <a class="btn btn-danger" href="#" onclick="deleteallCandidates(<?php echo $pageCurrent;?>);">
                     Xóa
                 </a>       
             </div>
@@ -29,6 +75,21 @@
                         <th>Tùy chọn</th>
                     </tr>
                 </thead>   
+                
+                       <?php
+                        $result = $this->Session->flash();
+                        if ($result != null || $this->Session->read('candidateResult')) {
+                            ?>
+                           <div id="flashMessage" class="message">Thay Đổi Thông Tin Thành Công</div>       
+                <script type='text/javascript'>
+            	$(document).ready(function(){
+            		setTimeout(function() {
+            			$("#flashMessage").fadeOut().remove();
+            		}, 5000);
+            	});
+              </script>
+                            <?php }
+                        ?>
                 <tbody>
                     <?php
                     foreach ($candidates as $data) {
@@ -38,14 +99,32 @@
 
                             <td class="center"><input type='checkbox' name="cbID"  class="case"  value=<?php echo $data['Candidates']['id']; ?> ></td>
                             <td>  <?php
-                            echo strip_tags($data['Candidates']['fullname']);
+                            echo strip_tags($data['Candidates']['fullname'],'');
                             
                             ?></td>
                             <td><?php echo $data['Candidates']['email'] ?></td>
-                            <td class="center"><?php echo $data['Candidates']['birthday'] ?></td>
-                            <td class="center">Nam</td>
-                            <td class="center"> <?php 
+                            <td class="center"><?php
                             
+                            
+                            echo date('d-m-Y', strtotime($data['Candidates']['birthday']));
+                            
+                            ?></td>
+                            <td class="center">
+                                
+                                <?php 
+                                
+                                
+                                if( $data['Candidates']['sex'] ==1)
+                                    echo "Nam";
+                                else
+                                      echo "Nữ";
+                                
+                                ?>
+                            
+                            
+                            </td>
+                            <td class="center"> <?php 
+                          
                                 echo date('d-m-Y H:i', strtotime($data['Candidates']['senddate']));
                             
                             ?></td>
@@ -88,13 +167,7 @@
             </div>  
         </div>
 
-<?php
-if ($this->Session->read('candidateResult') == '1') {
-    ?>
-            <div class="box-content1">	
-                <div class="valid_box">  Xóa Thành Công </div>
-            </div>
-<?php } ?>
+
     </div><!--/span-->
 
 </div><!--/row-->

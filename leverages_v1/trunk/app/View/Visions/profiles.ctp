@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 
 <div id="Main"><!-- InstanceBeginEditable name="main" -->
-<h2 class="titlebar"><img src="<?php echo Configure::read('baseurl');?>frontend/images/profile/ttl_profile.gif" width="69" height="16" alt="Giới thiệu" /></h2>
+<h2 class="titlebar" style="font-size:14px; font-weight:14px;font-weight:bold">Giới thiệu</h2>
 
 <div class="section">
 <table border="0" cellpadding="0" cellspacing="20" summary="レバレジーズのGiới thiệuについての表。1列目に項目、2列目に内容。">
@@ -43,24 +43,16 @@ $(document).ready(function(){
 
 </td>
 </tr>
-
 <tr>
-<th><img src="<?php echo Configure::read('baseurl');?>frontend/images/profile/txt_money.gif" width="39" height="13" alt="資本金" /></th>
-<td colspan="2">5,000万円</td>
+<th>Tổng đốc</th>
+<td colspan="2">Mr.Ishiohmaru Naohiro</td>
 </tr>
 <tr>
-<th><img src="<?php echo Configure::read('baseurl');?>frontend/images/profile/txt_ceo.gif" width="32" height="13" alt="役員" /></th>
-<td colspan="2">代表取締役　岩槻知秀</td>
-</tr>
-<tr>
-<th><img src="<?php echo Configure::read('baseurl');?>frontend/images/profile/txt_solution.gif" width="53" height="13" alt="事業内容" /></th>
+<th>Lĩnh vực hoạt động</th>
 <td>Dịch vụ truyền thông<br />System engineering link</td>
 <td>Medical<br />Human Capital</td>
 </tr>
-<tr>
-<th><img src="<?php echo Configure::read('baseurl');?>frontend/images/profile/txt_license.gif" width="32" height="13" alt="認定" /></th>
-<td colspan="2">有料職業紹介事業許可番号　　13-ユ-302698<br />一般労働者派遣事業許可番号　般13-302333<br />プライバシーマーク認定番号　第10822633(03) <br />ISMS認定取得　ISO/IEC27001(IS 587202)</td>
-</tr>
+
 <tr><th>&nbsp;</th>
 
 <td colspan="2"><a href="http://leverages.jp/company/profile.html" target="_blank">Xem chi tiết công ty Leverages Japan</a></td>

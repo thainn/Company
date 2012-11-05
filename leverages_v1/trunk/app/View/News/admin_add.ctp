@@ -9,11 +9,11 @@
 					</div>
 					<div class="box-content">
                         <?php echo $this->Session->flash(); ?>
-                        <form class="form-horizontal" method="post">
+                        <form class="form-horizontal" method="post" id='newsform'>
                             <fieldset>
 							
 							<div class="control-group">
-							  <label class="control-label" for="typeahead">Tiêu đề (*)</label>
+							  <label class="control-label" for="typeahead">Tiêu đề <span class='note'>(*)</span></label>
 							  <div class="controls">
 								<input type="text" class="span6 typeahead" id="title" name="data[title]">
 							  </div>
@@ -29,9 +29,9 @@
 							
 							
 							<div class="control-group">
-							  <label class="control-label" for="date01">Ngày giờ đăng</label>
+							  <label class="control-label" for="date01">Ngày giờ đăng <span class='note'>(*)</span></label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge timepicker" id="postdate" value="" name="data[publishdate]">
+								<input type="text" class="input-xlarge timepicker" id="postdate" value="" name="data[publishdate]" readonly style='cursor: pointer;'>
 								<p class="help-block">Thời điểm bài viết được đăng trên website</p>
 							  </div>
 							</div>
@@ -55,7 +55,7 @@
 							  <button type="submit" class="btn btn-primary">Lưu nội dung</button>
 							 
                               <?php
-                                echo $this->Html->link('Hủy', 
+                                	echo $this->Html->link('Hủy', 
                                                         array('controller' => 'news', 'action' => 'index'), 
                                                         array('class' => 'btn')
                                                     );
@@ -77,5 +77,10 @@
 	$('.timepicker').datetimepicker({
 		dateFormat: 'dd/mm/yy',
 		timeFormat: 'hh:mm'
+	});
+	var index = 1;
+	$('#newsform').submit(function(){
+		if(index++ < 2) return true;
+		return false;
 	});
 	</script>

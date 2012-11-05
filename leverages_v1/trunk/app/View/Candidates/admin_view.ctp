@@ -3,7 +3,7 @@
 
 if($error!=null)
 {?>
-<div align='center'> không tìm thấy trang Bạn Yêu Cầu </div>
+<div align='center'> Không tìm thấy trang bạn yêu cầu </div>
 <?php
 return;
 }
@@ -19,7 +19,8 @@ return;
                 <b>Họ tên</b>: <?php echo strip_tags($candidate['Candidates']['fullname'],''); ?>
                 <br >
                 <b>Giới tính</b>: <?php
-                         if( $data['Candidates']['sex']==1)
+                   
+                         if( $candidate['Candidates']['sex']=='1')
                          {
                               echo  'Nam';
                          }
@@ -33,34 +34,29 @@ return;
                 <br>
              
                 
-                  <b>Ngày sinh</b>: <?php echo $candidate['Candidates']['birthday']; ?><br >
+                  <b>Ngày sinh</b>: <?php 
+                  echo date('d-m-Y', strtotime($candidate['Candidates']['birthday']));
+                  ?>
+                  <br>
                 
                 <b>Email</b>: <?php echo $candidate['Candidates']['email']; ?><br >
               
                 <b>Ngày gửi</b>: <?php
-                
              
-                                echo date('d-m-Y H:i', strtotime($data['Candidates']['senddate']));
-                            
-             
+                                echo date('d-m-Y H:i', strtotime($candidate['Candidates']['senddate']));
             ?> <br>
                 <?php
                  $url = $candidate['Candidates']['url'];
+               
                 if($url!=null)
                 {
              
-                $path = Router::url('/', true) . 'files/' . $url; ?>
-                <a href=<?php echo $path ?> class='btn btn-success' style="margin: 0 0 10px;">
-                   download  
+                $path = Router::url('/', true) . 'files/' . $url; 
+                ?>
+                <a href='<?php echo $path ?>' class='btn btn-success' style="margin: 0 0 10px;">
+                   Download  
                 <?php } ?>
-                   
-
             </a>
-
-
-
-
-
             <br>
 
         </legend>

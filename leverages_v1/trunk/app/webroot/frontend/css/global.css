@@ -195,6 +195,7 @@ Main
 	float:left;
 	padding:40px 0 20px 0;
 	background:url("../images/main_bg_title.gif") no-repeat 0 40px;
+overflow:hidden
 }
 /* h2
 ---------------------*/

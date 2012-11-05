@@ -8,7 +8,7 @@ $(document).ready(function(){
 <div id="Content">
 <a id="main-Contents" name="main-Contents"><img src="<?php echo Configure::read('baseurl');?>frontend/images/spacer.gif" alt="ここからメインコンテンツです" /></a>
 <!-- InstanceBeginEditable name="title" -->
-<h1 class="recruit"><img src="<?php echo Configure::read('baseurl');?>frontend/images/recruit/ttl_main.png" width="265" height="25" alt="Giới thiệu｜会社情報｜レバレジーズ株式会社" /></h1>
+<h1 class="news"><img src="<?php echo Configure::read('baseurl');?>frontend/images/news/ttl_main.gif" width="132" height="20" alt="2011年｜ニュース｜レバレジーズ株式会社" /></h1>
 
 <!-- InstanceEndEditable -->
 <div id="Wrapper">
@@ -20,7 +20,7 @@ $(document).ready(function(){
 <h2 style="font-size:18px"><a href="<?php echo Configure::read('baseurl');?>news/">Tin tức</a> » <?php echo $data['title'];?></h2>
 <!-- .title // --></div>
 <br/>
-<?php echo $data['content'];?>
+<table border='0' width='100%'><tr><td><?php echo $data['content']?></td></tr></table>
 </div>
 
 <!-- InstanceEndEditable -->

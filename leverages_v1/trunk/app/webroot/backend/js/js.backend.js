@@ -1,5 +1,4 @@
 
-
 function deleteItem(current, module){
     var params = {};
     params['item'] = {};
@@ -25,7 +24,6 @@ function deleteItem(current, module){
         return false;
   }
 }
-
 
     $(document).ready(function(){
         $("#cb_all").click(function(){

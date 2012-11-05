@@ -61,13 +61,19 @@ $(document).ready(function(){
     password.keyup(validatepassword);
     passwordOld.keyup(validatepasswordOld);
     passwordNew.keyup(validatepasswordNew);
-    ConfirmpasswordNew.blur(ConfirmvalidatepasswordNew);
+   
+    ConfirmpasswordNew.keyup(ConfirmvalidatepasswordNew);
+     ConfirmpasswordNew.change(ConfirmvalidatepasswordNew);
     fullname.keyup(validateFullName);
     email.keyup(validateEmail);
     phone.keyup(validatephone);
     year.keyup(validateyear);
+   year.change(validateyear);
     message.keyup(validateMessageOn);
-        
+         file.change(validateUpload);
+		 fullname.change(validateFullName);
+		 email.change(validateEmail);
+		 message.change(validateMessageOn);
     file.keyup(validateUpload);
     form.submit(function(){
       
@@ -127,26 +133,45 @@ $(document).ready(function(){
         else
         {
            
-            if(validatepasswordOld()==false){
-            	$('#passwordOld .error').remove();
-                $('#passwordOld').append('<span id="passwordOldInfo" class="error">Password  hiện tại ít nhất 6 kí tự</span>');
+            if(validatepasswordOld()==false)
+            {
+                //var passwordOld = $("#passwordOld");
+                // var passwordOldInfo = $("#passwordOldInfo");
+                passwordOld.addClass("error");
+                passwordOldInfo.text("Password  hiện tại ít nhất 6 kí tự");
+                passwordOldInfo.addClass("error");
+                if(passwordOld.val().length <1)
+                {
+                    passwordOld.addClass("error");
+                    passwordOldInfo.text("Password hiện tại không được trống");
+                    passwordOldInfo.addClass("error");  
+                }
             }
             
-            if(validatepasswordNew()==false){
-            	$('#passwordNew .error').remove();
-                $('#passwordNew').append('<span class="error">Password mới ít nhất 6 kí tự</span>');
+            if(validatepasswordNew()==false)
+            {
+
+                passwordNew.addClass("error");
+                passwordNewInfo.text("Password mới ít nhất 6 kí tự");
+                passwordNewInfo.addClass("error");
+                if(passwordNew.val().length <1)
+                {
+                    passwordNew.addClass("error");
+                    passwordNewInfo.text(" Password mới không được trống ");
+                    passwordNewInfo.addClass("error");  
+                }
             }
             
             
-            if(ConfirmvalidatepasswordNew()==false) {
-            	$('#ConfirmpasswordNew .error').remove();
-                if(ConfirmpasswordNew.val()!= passwordNew.val()){
-                    $('#ConfirmpasswordNew').append('<span class="error">Password xác nhận không trùng với password mới</span>');
+            if(ConfirmvalidatepasswordNew()==false)
+            {
+                if(ConfirmpasswordNew.val()!= passwordNew.val())
+                {
+                    ConfirmpasswordNew.addClass("error");
+                    ConfirmpasswordNewInfo.text("Xác nhận password không trùng với password mới ");
+                    ConfirmpasswordNewInfo.addClass("error");  
                 }
-                
-                if(ConfirmpasswordNew.val().length <1) {
-                	 $('#ConfirmpasswordNew').append('<span class="error">Password xác nhận không trùng với password mới</span>');
-                }
+               
             }
             
           
@@ -156,13 +181,22 @@ $(document).ready(function(){
     
     var form3 = $("#customForm3");
     form3.submit(function(){
-     
+        
+       
+    
+      
+      
         if( validateEmail() & validateFullName() & validatephone()
                     & validateyear() & validateMessageOn() & validateUpload() )
             
         {
-           
+            var r=confirm(" Bạn có chắc chắn gửi không ? ");
+                if (r==false)
+                    return false
+            
+           $("#sendEmail").attr("disabled", true);
             return true;
+            
         }
         else
         {
@@ -288,7 +322,7 @@ $(document).ready(function(){
                 
         if(email.val().length < 1){
             email.addClass("error");
-            emailInfo.text("Email không được dể trống");
+            emailInfo.text("Email không được để trống");
             emailInfo.addClass("error");
             return false;
         }
@@ -318,16 +352,16 @@ $(document).ready(function(){
             return false;
         }
                 
-        else if(fullname.val().length < 5){
+        else if(fullname.val().length < 3){
             fullname.addClass("error");
-            fullnameInfo.text("Họ tên phải ít nhất 5 kí tự");
+            fullnameInfo.text("Họ tên phải ít nhất 3 kí tự");
             fullnameInfo.addClass("error");
             return false;
         }
               
-        else if(fullname.val().length > 15){
+        else if(fullname.val().length > 70){
             fullname.addClass("error");
-            fullnameInfo.text("Họ tên chỉ tối đa 15 kí tự");
+            fullnameInfo.text("Họ tên chỉ tối đa 70 kí tự");
             fullnameInfo.addClass("error");
             return false;
         }
@@ -354,9 +388,9 @@ $(document).ready(function(){
             return false;
         }
                
-        else if(phone.val().length <8){
+        else if(phone.val().length <5){
             phone.addClass("error");
-            phoneInfo.text("Phone ít nhất 9 kí tự");
+            phoneInfo.text("Phone ít nhất 5 kí tự");
             phoneInfo.addClass("error");
             return false;
         }
@@ -365,7 +399,6 @@ $(document).ready(function(){
             phoneInfo.text("");
             phoneInfo.removeClass("error");
         }
-                
 		
         else{		
                     
@@ -374,70 +407,36 @@ $(document).ready(function(){
             phoneInfo.addClass("error");
             return false;
         }
-                
         return true;
     }
         
         
     function validateyear(){
-            
         var a = $("#year").val();
-        var number= /^-?(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?$/;
-        if(year.val().length <1){
-            year.addClass("error");
-            yearInfo.text("Năm sinh không được để trống");
-            yearInfo.addClass("error");
-            return false;
-        }
-        if(number.test(a))
-        {
-            year.addClass("error");
-            yearInfo.text("");
-            yearInfo.addClass("error");
-        //  return true;
-        }
-        else
-        {
-            year.addClass("error");
-            yearInfo.text("Năm Sinh chứa toàn kí tự số");
-            yearInfo.addClass("error");
-            return false;
-        }
-        if(year.val().length >4){
-            year.addClass("error");
-            yearInfo.text("Năm Sinh chứa tối đa là 4 kí tự");
-            yearInfo.addClass("error");
-            return false;
-        }
-        else{
-            year.removeClass("error");
+        if(a!='')
+            {
+           year.removeClass("error");
             yearInfo.text("");
             yearInfo.removeClass("error");
-            if(year.val().length <4){
-                year.addClass("error");
-                yearInfo.text("Năm Sinh chứa  ít là 4 kí tự");
-                yearInfo.addClass("error");
-                return false;
+             return true;
             }
-            else
-            {
-                year.removeClass("error");
-                yearInfo.text("");
-                yearInfo.removeClass("error");
-                               
-            }
-                      
-            return true;
-                       
+       else{
+            year.addClass("error");
+            yearInfo.text("Năm sinh không được  để trống");
+            yearInfo.addClass("error");
+             
         }
 		
     }
+    
+    
+        
+    
         
     function validateMessageOn(){
         //if it's NOT valid
-                
+              
         if(message.val().length <1){
-		
             message.addClass("error");
             messageInfo.text("Giới thiệu bản thân không được để trống");
             messageInfo.addClass("error");
@@ -445,7 +444,6 @@ $(document).ready(function(){
         }
                 
         if(message.val().length <15){
-		
             message.addClass("error");
             messageInfo.text("Giới thiệu bản thân phải ít nhất 15 kí tự");
             messageInfo.addClass("error");

@@ -45,7 +45,7 @@
                         ?> 
                         <tr>
                             <td class="center"><input class='cb_item' type='checkbox' value='<?php echo $data['News']['id']; ?>' name='del[<?php echo $data['News']['id']; ?>]'></td>
-                            <td><?php echo $data['News']['title']; ?></td>
+                            <td><?php echo AppHelper::cutString($data['News']['title'],  Configure::read('LIMIT_CHART_TITLE_NEWS'),'...'); ?></td>
                             <td class="center"><?php echo date('d/m/Y', strtotime($data['News']['regdate'])); ?></td>
                             <td class="center"><?php echo date("d/m/Y H:i", strtotime($data['News']['publishdate'])); ?></td>
                             <td class="center">
@@ -76,6 +76,7 @@
                     </tbody>
                 </table>
 
+                
 
                 <?php
                 if($this->Paginator->numbers()){
@@ -86,7 +87,7 @@
 	                    		<li>{$this->Paginator->numbers()}</li>
 	                    		<li>{$this->Paginator->next(' Sau »', null, null, array('class' => 'disabled'))}</li>
                 			</ul>
-                    	<div>
+                    	</div>
 EOF;
                 }
                 ?> 

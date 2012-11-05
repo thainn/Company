@@ -11,16 +11,30 @@
 */
 class VisionsController extends AppController {
 
-     function index()
-     {
+	/*
+	 * Frontend only.
+	* Display "Giới thiệu" default static page.
+	*
+	*/
+     function index() {
          $this->set('page_title','Mục tiêu của công ty');
      }
-     function profiles()
-     {
+     
+     /*
+      * Frontend only.
+     * Display "Giới thiệu" static page.
+     *
+     */
+     function profiles() {
          $this->set('page_title','Giới thiệu công ty');
      }
-     function philosophy()
-     {
+     
+     /*
+      * Frontend only.
+     * Display "Philosophy" static page.
+     *
+     */
+     function philosophy() {
          $this->set('page_title','Philosophys');
      }
 }

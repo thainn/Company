@@ -32,7 +32,7 @@ if (r==true)
 
 
 
-  function deleteallContacts()
+  function deleteallContacts(page)
 { 
      
      
@@ -42,7 +42,7 @@ if (r==true)
 	 });
          if(count==0)
               {
-                alert('Bạn Chưa Chọn tin Để Xóa');
+                alert('Bạn chưa chọn tin để xóa');
                   return;
              }
    var r=confirm(" Bạn có chắc chắn xóa không ? ");
@@ -70,7 +70,7 @@ if (r==true)
        
         });
         
-          window.location = "contacts";
+        window.location =baseurl+ "admin/contacts/index/page:"+page;
   }
 }
 
@@ -98,15 +98,16 @@ if (r==true)
 }
 
 
-  function deleteallCandidates()
+  function deleteallCandidates(page)
 { 
+   
     var count=0;
     $.each($("input[name='cbID']:checked"), function() {
         count++;
 	 });
          if(count==0)
               {
-                alert('Bạn Chưa Chọn tin Để Xóa');
+                alert('Bạn chưa chọn tin để xóa');
                   return;
              }
             
@@ -131,7 +132,7 @@ if (r==true)
             }
         });
         });
-          window.location = "candidates";
+          window.location =baseurl+ "admin/candidates/index/page:"+page;
   }
 }
 

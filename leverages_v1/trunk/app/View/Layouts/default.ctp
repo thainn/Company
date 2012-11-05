@@ -35,11 +35,11 @@ Header
 <h1><a href="<?php echo Configure::read('baseurl');?>"><img src="<?php echo Configure::read('baseurl');?>frontend/images/header_logo3.png" width="217" height="28" alt="Leverages レバレジーズ株式会社 Global Solution" /></a></h1>
 
 <ul id="GlobalNavi" class="all-rover">
-<li><a href="<?php echo Configure::read('baseurl');?>"><img src="<?php echo Configure::read('baseurl');?>frontend/images/header_navi_g01.gif" width="55" height="28" alt="Home" id="navi_g01" /></a></li>
-<li><a href="<?php echo Configure::read('baseurl');?>visions/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/header_navi_g02.gif" width="57" height="28" alt="Profile" id="navi_g02" /></a></li>
-<li><a href="<?php echo Configure::read('baseurl');?>services/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/header_navi_g03.gif" width="67" height="28" alt="Service" id="navi_g03" /></a></li>
-<li><a href="<?php echo Configure::read('baseurl');?>news/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/header_navi_g04.gif" width="55" height="28" alt="News" id="navi_g04" /></a></li>
-<li><a href="<?php echo Configure::read('baseurl');?>recruits/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/header_navi_g06.gif" width="63" height="28" alt="Recruit" id="navi_g06" /></a></li>
+<li><a href="<?php echo Configure::read('baseurl');?>"><img src="<?php echo Configure::read('baseurl');?>frontend/images/header_navi_g01.gif"  alt="Home" id="navi_g01" /></a></li>
+<li><a href="<?php echo Configure::read('baseurl');?>visions/"><img  src="<?php echo Configure::read('baseurl');?>frontend/images/header_navi_g02.gif" alt="Profile" id="navi_g02" /></a></li>
+<li><a href="<?php echo Configure::read('baseurl');?>services/"><img   src="<?php echo Configure::read('baseurl');?>frontend/images/header_navi_g03.gif"  alt="Service" id="navi_g03" /></a></li>
+<li><a href="<?php echo Configure::read('baseurl');?>news/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/header_navi_g04.gif" alt="News" id="navi_g04" /></a></li>
+<li><a href="<?php echo Configure::read('baseurl');?>recruits/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/header_navi_g06.gif"  alt="Recruit" id="navi_g06" /></a></li>
 </ul>
 <ul class="contact all-rover">
 <li><a href="<?php echo Configure::read('baseurl');?>contacts/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/header_btn_contact.gif" width="60" height="9" alt="CONTACT" id="btn_contact" /></a></li>
@@ -66,12 +66,12 @@ Footer
 <div id="Footer">
 <div class="footer-inside">
 <ul id="FooterNavi" class="all-rover">
-<li><a href="<?php echo Configure::read('baseurl');?>visions/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_navi_f01.gif" width="40" height="11" alt="会社情報" id="navi_f01" /></a></li>
-<li><a href="<?php echo Configure::read('baseurl');?>services/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_navi_f02.gif" width="39" height="11" alt="事業領域" id="navi_f02" /></a></li>
-<li><a href="<?php echo Configure::read('baseurl');?>news/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_navi_f03.gif" width="39" height="11" alt="ニュース" id="navi_f03" /></a></li>
-<li><a href="<?php echo Configure::read('baseurl');?>recruits/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_navi_f05.gif" width="39" height="11" alt="採用情報" id="navi_f05" /></a></li>
-<li><a href="<?php echo Configure::read('baseurl');?>sitemaps/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_navi_f07.gif" width="57" height="11" alt="サイトマップ" id="navi_f07" /></a></li>
-<li><a href="<?php echo Configure::read('baseurl');?>contacts/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_navi_f08.gif" width="57" height="11" alt="お問い合わせ" id="navi_f08" /></a></li>
+<li><a href="<?php echo Configure::read('baseurl');?>visions/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_navi_f01.gif"  alt="会社情報" id="navi_f01" /></a></li>
+<li><a href="<?php echo Configure::read('baseurl');?>services/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_navi_f02.gif"  alt="事業領域" id="navi_f02" /></a></li>
+<li><a href="<?php echo Configure::read('baseurl');?>news/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_navi_f03.gif"  alt="ニュース" id="navi_f03" /></a></li>
+<li><a href="<?php echo Configure::read('baseurl');?>recruits/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_navi_f05.gif"  alt="採用情報" id="navi_f05" /></a></li>
+<li><a href="<?php echo Configure::read('baseurl');?>sitemaps/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_navi_f07.gif"  alt="サイトマップ" id="navi_f07" /></a></li>
+<li><a href="<?php echo Configure::read('baseurl');?>contacts/"><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_navi_f08.gif" alt="お問い合わせ" id="navi_f08" /></a></li>
 <!-- #FooterNavi // --></ul>
 
 <p><img src="<?php echo Configure::read('baseurl');?>frontend/images/footer_logo1.png" width="160" height="17" alt="Leverages レバレジーズ株式会社 Global Solution" /></p>

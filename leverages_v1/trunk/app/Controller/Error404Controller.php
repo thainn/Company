@@ -9,10 +9,9 @@
 *
 * VisionsController display profile of company
 */
-class error404Controller extends AppController {
+class Error404Controller extends AppController {
 
-     function index()
-     {
+     function index(){
          $this->set('page_title','Lỗi - Không tìm thấy trang');
      }
 }

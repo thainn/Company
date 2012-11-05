@@ -4,7 +4,7 @@
 section
 -------------------------------------------------------*/
 #Main div.section{
-	margin:40px 13px 0;
+	margin:40px 13px 0;text-align:justify
 }
 /* text */
 #Main div.section h3,

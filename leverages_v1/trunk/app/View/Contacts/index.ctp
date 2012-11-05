@@ -45,13 +45,34 @@ $(document).ready(function(){
 <th>Nội dung liên hệ</th>
 <td class='error'> <?php  if(!empty($enterContent)){echo $enterContent;} ?><br/>
 <textarea cols="80" rows="5"  name="data[content]"><?php if($data){echo $data['content'];}?></textarea>
+<input type="hidden" name="randomKey" value="<?php echo $randKey;?>"/>
 </td>
 </tr>
 </table>
-<p class="btn" style="padding-top:10px;">
+
+<div id="kiyakutext" style="width:470px; margin:0 auto; position:relative; left:45px;">
+						
+						<div id="k_form_undertext" style="font-weight:bold;">
+
+	Thông tin liên hệ	</div>
+	<div id="form_articlebox" style="border:#CCCCCC 1px solid; padding:10px; width:450px; margin:0 auto;">
+	<table> 
+	<tbody> 
+	<tr><td style="background:none;font-size:16px"><b>Leverages Viet Nam</b></td></tr> 
+	<tr><td style="background:none;">TEL　　：<span> 01218767971</span></td></tr> 
+	<tr><td style="background:none">FAX　　： --------</td></tr> 
+	<tr><td style="background:none">Email：<a href="mailto:contact.vn@leverages.jp"><font color="#cc6600">contact.vn@leverages.jp</font></a></td></tr> 
+	</tbody> 
+</table>
+
+	</div>
+</div>
+
+<p class="btn" style="padding-top:10px;text-align:center;margin-left: 310px;">
 <input type="submit" value="Gửi liên hệ" class="global_button" />
 </p>
 </form>
+
 </div>
 <!-- InstanceEndEditable -->
 <!-- #Main // --></div>

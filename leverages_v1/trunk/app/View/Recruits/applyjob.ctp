@@ -3,11 +3,27 @@
 <link rel="stylesheet" type="text/css" href="<?php echo Configure::read('baseurl'); ?>frontend/css/recruit.css" media="all" />
 <link rel="stylesheet" type="text/css" href="<?php echo Configure::read('baseurl'); ?>frontend/css/general.css" />
 <script src="<?php echo Configure::read('baseurl'); ?>backend/js/validation.js"></script>
+<script src="<?php echo Configure::read('baseurl'); ?>backend/js/jquery-ui-timepicker.js"></script>
+<script src="<?php echo Configure::read('baseurl'); ?>backend/js/jquery-ui-sliderAccess.js"></script>
+ <script src="<?php echo Router::url('/', true); ?>backend/js/jquery-ui-1.8.21.custom.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo Router::url('/', true); ?>backend/css/jquery-ui-1.8.21.custom.css" />
+
 <script type="text/javascript">
     $(document).ready(function(){
         $.library.active({id:'navi_g06',type:'img'});
+        $('.datepicker').datepicker({
+		dateFormat: 'dd/mm/yy',
+                changeMonth: true,
+                changeYear: true,
+                yearRange:'-40:+0'
+	});
 
     });
+    
+    
+
+    
+    
 </script>
 
 
@@ -25,14 +41,16 @@
         <div id="Main"><!-- InstanceBeginEditable name="main" -->
             <div class="section" id="our">
                 <div class="title">
-                    <h2 style="font-size:18px;margin-bottom:10px">Recruit » PHP developer » Apply Job
+                    <h2 style="font-size:18px;margin-bottom:10px">Recruit  » Apply Job
                     
                          <div id="errorFull"style="color: red">
-                            
+                          <h2 style="font-size:18px;margin-bottom:10px "> 
+                           <?php echo $this->Session->flash(); ?>
+                          </h2>
                     <?php if ($success=='true') {
+                        
                             ?>
                              <h2 style="font-size:18px;margin-bottom:10px "> 
-                                 asdasdsa asdasdas
                            <?php echo ' Upload CV Thành Công '  ?>
                         <?php }?>
                        
@@ -61,9 +79,9 @@
                             <td width="200px">Vị trí</td><td><span style="font-weight:bold">
 
                                     <?php
-                                    foreach ($recruit as $data) {
+                                 
                                         echo $recruit['Recruit']['title'];
-                                    }
+                                    
                                     ?>
 
                                 </span>
@@ -74,7 +92,7 @@
                             <td width="200px">Họ tên ứng viên</td>
 
                             <td>
-                                <input class="jobinput" type="text" id="fullname" name="fullname" value="" >
+                                <input class="jobinput" type="text" id="fullname" name="fullname" value="<?php  echo $dataEoor['fullname'];  ?>" >
                                 </br>   <span id="fullnameInfo" style="color: red" ></span>
 
                                 <div id="errorFull"style="color: red">
@@ -87,9 +105,9 @@
                             </td> 
 
                         </tr>
-
+                        
                         <tr> <td>Email </td><td>
-                                <input type="text"  class="jobinput" value="" name="email" id="email" name="email" >
+                                <input type="text"  class="jobinput" value="<?php  echo $dataEoor['email'];  ?>" name="email" id="email" >
 
                                 </br>  <span id="emailInfo" style="color: red"></span>
                                 <div id="errorFull"style="color: red">
@@ -102,7 +120,7 @@
                             </td> 
 
                         </tr>
-                        <tr><td>Điện thoại</td><td><input type="text"  class="jobinput"  value="" name='phone'  id="phone"  >
+                        <tr><td>Điện thoại</td><td><input type="text"  class="jobinput"  value="<?php  echo $dataEoor['phone'];  ?>" name='phone'  id="phone"  >
 
 
                                 </br>   <span id="phoneInfo" style="color: red"></span>
@@ -118,8 +136,11 @@
 
                         </tr>
                         <tr>
-                            <td>Năm sinh</td><td>
-                                <input type="text"  class="jobinput" style="width:100px"  value="" name="senddate" id="year" >
+                            <td> Ngày tháng năm sinh</td>
+                            
+                            <td>
+                                
+                                <input type="text"  style="width:100px"  class="datepicker"  value="<?php  echo $dataEoor['birthday'];  ?>" name="birthday" id="year" readonly >
                                 </br>    <span id="yearInfo" style="color: red"></span>
 
                                 <div id="errorFull"style="color: red">
@@ -134,10 +155,48 @@
                         </tr>
                         <tr><td> Giới Tính  </td>  
                             <td>
-                                <input type="radio" name="sexname" value="Water" width="10%" checked="true"> Nam &nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="radio" name="sexname" value="Water" width="10%"> Nữ</td></tr>
-
-                        <tr><td colspan=2>Giới thiệu bản thân<br/><textarea  class="input-usually" style="margin: 10px 0px 0px; height: 164px; width: 625px;  "  id="message" name="introduce"></textarea>
+                                
+                             
+                                 <?php  
+                                if($dataEoor['sex']!=null)
+                                    {
+                                    if($dataEoor['sex']==1) {?>
+                                
+                                        <input type="radio" name="sex" value="1" width="10%" checked="true"> Nam &nbsp;&nbsp;&nbsp;&nbsp;
+                                              <input type="radio" name="sex" value="0" width="10%"> Nữ</td></tr>
+                                    
+                                        <?php    }    else {
+                                           
+                                            ?>
+                                              <input type="radio" name="sex" value="1" width="10%" > Nam &nbsp;&nbsp;&nbsp;&nbsp;
+                                               <input type="radio" name="sex" value="0" width="10%" checked="true"> Nữ</td></tr>
+                        
+                        
+                                     <?php   }
+                                      
+                                 
+                                
+                                
+                              
+                                }
+                                    else
+                                { ?>
+                                
+                                <input type="radio" name="sex" value="1" width="10%" checked="true"> Nam &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="sex" value="0" width="10%"> Nữ</td></tr>
+                                    
+                        
+                        <?php } ?>
+                                
+                                
+                                
+                                
+                              
+                                    
+                        
+                        
+                        
+                        <tr><td colspan=2>Giới thiệu bản thân<br/><textarea  class="input-usually" style="margin: 10px 0px 0px; height: 164px; width: 625px;  "  id="message"  name="introduce"> <?php  echo $dataEoor['introduce'];  ?> </textarea>
                                 </br>  <span id="messageInfo" style="color: red"> </span>
 
                                 <div id="errorFull"style="color: red">
@@ -151,8 +210,8 @@
                         </tr>
                     </table>
                     <p>
-                        Đính kèm CV (Chỉ chấp nhận file .doc, .pdf, .rar, .zip bằng tiếng anh)<br>
-                        <input id="uploadFile"  type="file" name="file" size="40">
+                        Đính kèm CV (Chỉ chấp nhận file .doc, .pdf, .xls bằng tiếng anh tối đa 2mb)<br>
+                        <input type="file" name="file" size="50" id="uploadFile">
                         </br>  <span id="uploadFileInfo" style="color: red"> </span>
                     <div id="errorFull"style="color:red">
                         <?php if (!empty($errorFile)) {
@@ -166,14 +225,14 @@
 //		echo $this->Form->input('file',array('type'=>'file','label'=>'','class' => 'fileUpload','multiple'=>'multiple', 'size'=>"80"));
                     //echo $this->Form->button('Upload', array('type' => 'submit', 'id' => 'px-submit'));
                     ?>
-
+ 
                     </p>
 
+                    
                     <div class="btns" align="center">
-                        <input class="global_button" type="submit" value="Gửi" id="send" name="send" class="btn btn-primary" >
-                  
+                        <input class="global_button" type="submit" value="Gửi" id="sendEmail" name="send" class="btn btn-primary"   >
                         <br> <br>
-                      
+                 
                        
                     </div>
                        
@@ -195,7 +254,11 @@
             <div class="section">
                 <h3><img src="<?php echo Configure::read('baseurl'); ?>frontend/images/side_ttl_comic.gif" width="47" height="20" alt="Comic" /></h3>
                 <ul class="all-rover">
-                    <li><a href="/comic/index.html" target="_blank"><img src="<?php echo Configure::read('baseurl'); ?>frontend/images/side_bnr_comic.gif" width="200" height="65" alt="岩槻代表物語 代表・岩槻の起業までの物語" /></a></li>
+                    <li>
+                        <a href="/comic/index.html" target="_blank">
+                            <img src="<?php echo Configure::read('baseurl'); ?>frontend/images/side_bnr_comic.gif" width="200" height="65" alt="岩槻代表物語 代表・岩槻の起業までの物語" />
+                        
+                        </a></li>
                 </ul>
                 <!-- .section // --></div>
             <div class="section">

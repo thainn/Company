@@ -33,7 +33,7 @@
                 <thead>
                     <tr>
                         <th><input type='checkbox' id="cb_all"/></th>
-                        <th width='500'>Tiêu đề</th>
+                        <th width='450'>Tiêu đề</th>
                         <th>Ngày tạo</th>
                         <th>Ngày bắt đầu</th>
                         <th>Ngày kết thúc</th>
@@ -46,7 +46,7 @@
                         ?> 
                         <tr>
                             <td class="center"><input class='cb_item' type='checkbox' value='<?php echo $data['Recruit']['id']; ?>' name='del[<?php echo $data['Recruit']['id']; ?>]'></td>
-                            <td><?php echo $data['Recruit']['title']; ?></td>
+                            <td><?php echo AppHelper::cutString($data['Recruit']['title'],  Configure::read('LIMIT_CHART_TITLE_NEWS'),'...'); ?></td>
                             <td class="center"><?php echo date('d/m/Y', strtotime($data['Recruit']['created'])); ?></td>
                             <td class="center"><?php echo date("d/m/Y", strtotime($data['Recruit']['startdate'])); ?></td>
                             <td class="center">
@@ -97,7 +97,7 @@
 	                    		<li>{$this->Paginator->numbers()}</li>
 	                    		<li>{$this->Paginator->next(' Sau »', null, null, array('class' => 'disabled'))}</li>
                 			</ul>
-                    	<div>
+                    	</div>
 EOF;
                 }
                 ?> 
@@ -105,4 +105,3 @@ EOF;
     </div><!--/span-->
 
 </div><!--/row-->
-

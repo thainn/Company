@@ -8,7 +8,7 @@ $(document).ready(function(){
 });
 </script>
 <div id="Content">
-<a id="main-Contents" name="main-Contents"><img src="/<?php echo Configure::read('baseurl');?>frontend/images/common/spacer.gif" alt="ここからメインコンテンツです" /></a>
+<a id="main-Contents" name="main-Contents"><img src="<?php echo Configure::read('baseurl');?>frontend/images/spacer.gif" alt="ここからメインコンテンツです" /></a>
 <!-- InstanceBeginEditable name="title" -->
 <h1 class="service"><img src="<?php echo Configure::read('baseurl');?>frontend/images/media/ttl_main.gif" width="274" height="20" alt="Dịch vụ truyền thông｜事業領域｜レバレジーズ株式会社" /></h1>
 <!-- InstanceEndEditable -->
@@ -16,14 +16,12 @@ $(document).ready(function(){
 
 
 <div id="Main"><!-- InstanceBeginEditable name="main" -->
-<h2 class="titlebar"><img src="<?php echo Configure::read('baseurl');?>frontend/images/media/ttl_media.gif" width="129" height="16" alt="Dịch vụ truyền thông" /></h2>
-
+<h2 class="titlebar" style="font-size:14px;font-weight:bold">Dịch vụ truyền thông</h2>
 <div class="section">
-<h3 style="font-weight:bold;margin-bottom:10px;font-size:13px">Dịch vụ truyền thông</h3>
 <p class="text">Phấn đấu triển khai dịch vụ chất lượng cao mang tầm quốc tế
 Thực hiện marketing Web chủ yếu về SEM, công ty đã tạo ra trang web chuyên sâu về nhân sự tiêu biểu được biết tới với tên “Partime Rich”. Về tương lai khi mô hình kinh doanh này thành công ở Nhật & Mỹ, chúng tôi sẽ áp dụng ra những nước khác.</p>
 <ul>
-<li class="fig01"><img src="<?php echo Configure::read('baseurl');?>frontend/images/media/fig_01.jpg" width="255" height="179" alt="" /></li>
+<li class="fig01" style="margin-top:20px"><img src="<?php echo Configure::read('baseurl');?>frontend/images/media/fig_01.jpg" width="255" height="179" alt="" /></li>
 <li class="fig02"><img src="<?php echo Configure::read('baseurl');?>frontend/images/media/fig_02.jpg" width="651" height="179" alt="" /></li>
 </ul>
 

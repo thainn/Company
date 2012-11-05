@@ -1,4 +1,4 @@
-<!-- InstanceBeginEditable name="head" -->
+ <!-- InstanceBeginEditable name="head" -->
 <link rel="stylesheet" type="text/css" href="<?php echo Configure::read('baseurl');?>frontend/css/vision.css" media="all" />
 <script type="text/javascript">
 $(document).ready(function(){
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 
 <div id="Main"><!-- InstanceBeginEditable name="main" -->
-<h2 class="titlebar"><img src="<?php echo Configure::read('baseurl');?>frontend/images/ttl_vision.gif" width="69" height="16" alt="Mục tiêu" /></h2>
+<h2 class="titlebar" style="font-size:14px;font-weight:bold">Mục tiêu</h2>
 
 
 <div id="info" class="section">

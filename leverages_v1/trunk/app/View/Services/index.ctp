@@ -16,11 +16,9 @@ $(document).ready(function(){
 <div id="Wrapper">
 
 
-<div id="Main"><!-- InstanceBeginEditable name="main" -->
-<h2 class="titlebar"><img src="<?php echo Configure::read('baseurl');?>frontend/images/service/ttl_service.gif" width="67" height="16" alt="事業領域" /></h2>
-
+<div id="Main"><!-- InstanceBeginEditable name="main" -->
+<h2 class="titlebar" style="font-size:14px;font-weight:bold">Lĩnh vực hoạt động</h2>
 <div class="section" id="info">
-<h3 style="font-weight:bold;margin-bottom:10px;font-size:13px">Lĩnh vực hoạt động</h3>
 <p class="fig1"><img src="<?php echo Configure::read('baseurl');?>frontend/images/service/fig_01.jpg" width="210" height="136" alt="" /></p>
 <p class="text1">Sáng tạo nhiều lĩnh vực mới dựa trên kinh nghiệm phong phú sẵn có
 Công ty Leverages được thành lập như một hệ thống tích hợp vào năm 2005.  Cùng với sự thay đổi của thời đại, trên một sự đồng nhất về quan điểm của công ty, chiến lược marketing, kinh doanh, những hoạt động trong công ty cũng thay đổi theo chủ yếu 3 lĩnh vực như media, nhân sự, IT.

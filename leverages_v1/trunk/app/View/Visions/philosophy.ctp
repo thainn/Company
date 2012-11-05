@@ -18,13 +18,12 @@ $(document).ready(function(){
 <div id="Main"><!-- InstanceBeginEditable name="main" -->
 
 <div class="philosophy">
-	<div class="philosophy_title">Tiêu đề philosophy</div>
+	<h2 style="font-weight:bold;font-size:14px">Phương châm công ty</h2>
 	<div class="philosophy_content">
-		<p style="font-weight:bold;font-size:16px;margin-bottom:10px">Nội dung philosophy</p>
+		<p style="font-weight:bold;font-size:16px;margin-bottom:10px">Nuôi dưỡng sự trưởng thành của mỗi cá nhân, quan tâm tới hạnh phúc của mọi người thông qua việc tạo ra khách hàng</p>
 
-
-	Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy Nội dung philosophy 	border:1px solid red
-
+Phương châm công ty bắt đầu từ tư tưởng  “Mình vì mọi người, mọi người vì mình, việc gia tăng những người có tư tưởng, có hành động theo tư tưởng đó góp phần cải thiện thế giới”.
+Tại Leverages, chúng tôi xem hạnh phúc của mọi người là nền tảng. Vì chúng tôi hiểu rằng phương châm đó chính là mục đích, là lẽ sống vĩnh viễn của công ty. Với tâm niệm này, chúng tôi tích cực tham gia hoạt động Xã hội một cách có ý nghĩa.
 </div>
 </div>
 

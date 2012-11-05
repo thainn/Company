@@ -8,11 +8,11 @@
 					</div>
 					<div class="box-content">
                         <?php echo $this->Session->flash(); ?>
-                        <form class="form-horizontal" method="post">
+                        <form class="form-horizontal" method="post" id='recruisform'>
                             <fieldset>
 							
 							<div class="control-group">
-							  <label class="control-label" for="typeahead">Tiêu đề (*)</label>
+							  <label class="control-label" for="typeahead">Tiêu đề <span class='note'>(*)</span></label>
 							  <div class="controls">
 								<input type="text" class="span6 typeahead" id="title" name="data[title]"  ">
 							  </div>
@@ -21,17 +21,18 @@
 							
 							
 							<div class="control-group">
-							  <label class="control-label" for="date01">Ngày bắt đầu</label>
+							  <label class="control-label" for="date01">Ngày bắt đầu <span class='note'>(*)</span></label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge datepicker" id="startdate"  name="data[startdate]">
+								<input type="text" class="input-xlarge datepicker" id="startdate"  name="data[startdate]" readonly style='cursor: pointer;'>
 								<p class="help-block">Thời điểm bài tuyển dụng có hiệu lực</p>
 							  </div>
 							</div>
                                 
                             <div class="control-group">
-							  <label class="control-label" for="date01">Ngày kết thúc</label>
 							  <div class="controls">
-								<input type="text" class="input-xlarge datepicker" id="enddate" name="data[enddate]">
+								<input  style='cursor:pointer; float:left' type="text" class="input-xlarge datepicker" id="enddate"  value="<?php echo $item['Recruit']['enddate']; ?>" name="data[enddate]" readonly style='cursor: pointer;'>
+								<label id='clear' style='cursor:pointer; float:left; margin-left: 10px;margin-top: 5px;'>Clear</label>
+								<div class='clear'></div>
 								<p class="help-block">Thời điểm bài tuyển dụng hết hiệu lực</p>
 							  </div>
 							</div>
@@ -67,3 +68,10 @@
 				</div><!--/span-->
 
 			</div><!--/row-->
+	<script>
+	var index = 1;
+	$('#recruisform').submit(function(){
+		if(index++ < 2) return true;
+		return false;
+	});
+	</script>

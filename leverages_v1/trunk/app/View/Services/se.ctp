@@ -8,18 +8,17 @@ $(document).ready(function(){
 });
 </script>
 <div id="Content">
-<a id="main-Contents" name="main-Contents"><img src="/<?php echo Configure::read('baseurl');?>frontend/images/common/spacer.gif" alt="ここからメインコンテンツです" /></a>
+<a id="main-Contents" name="main-Contents"><img src="<?php echo Configure::read('baseurl');?>frontend/images/spacer.gif" alt="ここからメインコンテンツです" /></a>
 <!-- InstanceBeginEditable name="title" -->
-<h1 class="service"><img src="<?php echo Configure::read('baseurl');?>frontend/images/se/ttl_main.gif" width="422" height="25" alt="Dịch vụ truyền thông｜事業領域｜レバレジーズ株式会社" /></h1>
+<h1 class="service"><img src="<?php echo Configure::read('baseurl');?>frontend/images/se/ttl_main.gif"  alt="Dịch vụ truyền thông｜事業領域｜レバレジーズ株式会社" /></h1>
 <!-- InstanceEndEditable -->
 <div id="Wrapper">
 
 
 <div id="Main"><!-- InstanceBeginEditable name="main" -->
-<h2 class="titlebar"><img src="<?php echo Configure::read('baseurl');?>frontend/images/se/ttl_se.gif" width="227" height="16" alt="System engineering link" /></h2>
+<h2 class="titlebar"  style="font-size:14px;font-weight:bold">System enginerring</h2>
 
 <div class="section" id="info">
-<h3 style="font-weight:bold;margin-bottom:10px;font-size:13px">Thử sức ở nước ngoài</h3>
 <p class="fig1"><img src="<?php echo Configure::read('baseurl');?>frontend/images/se/fig_01.jpg" width="210" height="122" alt="" /></p>
 <p class="text1">Công ty hân hạnh được hết mình hỗ trợ từ những hoạt động kinh doanh, vận hành bảo trì hay phát triển cho đến việc tiến hành cung cấp nguồn phục vụ cho khách hàng với đối tượng chủ yếu là những doanh nghiệp lớn. Công ty chúng tôi tự tin vào vốn kinh nghiệm chuyên môn phong phú sẵn có của mình trên lĩnh vực phát triển những ứng dụng văn phòng trong môi trường NET, Java, phát triển web trên mobile, smartphone...</p>
 <p class="fig2"><img src="<?php echo Configure::read('baseurl');?>frontend/images/se/fig_02.jpg" width="221" height="134" alt="" /></p>
@@ -121,7 +120,7 @@ TIS様・インテック様などの国内大手SIer様、シンプレクス・�
 </ul>
 <!-- .section // --></div>
 <!--<div class="section" id="Campaign">
-<h3><img src="/<?php echo Configure::read('baseurl');?>frontend/images/common/side_ttl_campaign.gif" width="75" height="19" alt="Campaign" /></h3>
+<h3><img src="/<?php echo Configure::read('baseurl');?>frontend/images/side_ttl_campaign.gif" width="75" height="19" alt="Campaign" /></h3>
 <p>キャンペーンの閲覧は、JavaScriptを有効にしてください。</p>-->
 <!-- .section // --><!--</div>-->
 <!-- #Side // --></div>

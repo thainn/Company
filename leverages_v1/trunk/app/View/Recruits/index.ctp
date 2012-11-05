@@ -8,7 +8,7 @@ $("#Main div.section ul li:even").addClass("even");
 <div id="Content">
 <a id="main-Contents" name="main-Contents"><img src="<?php echo Configure::read('baseurl');?>frontend/images/spacer.gif" alt="ここからメインコンテンツです" /></a>
 <!-- InstanceBeginEditable name="title" -->
-<h1 class="recruit"><img src="<?php echo Configure::read('baseurl');?>frontend/images/recruit/ttl_main.png" width="265" height="25" alt="Giới thiệu｜会社情報｜レバレジーズ株式会社" /></h1>
+<h1 class="recruit"><img src="<?php echo Configure::read('baseurl');?>frontend/images/recruit/ttl_main.png"  alt="Giới thiệu｜会社情報｜レバレジーズ株式会社" /></h1>
 
 <!-- InstanceEndEditable -->
 <div id="Wrapper">
@@ -17,7 +17,7 @@ $("#Main div.section ul li:even").addClass("even");
 <div id="Main"><!-- InstanceBeginEditable name="main" -->
 <div class="section" id="our">
 <div class="title">
-<h2 style="font-size:18px">Recruit</h2>
+<h2 style="font-size:14px;font-weight:bold">Tuyển dụng </h2>
 <!-- .title // --></div>
 <div class="section-inside odd">
 <dl>
@@ -43,7 +43,7 @@ $("#Main div.section ul li:even").addClass("even");
 <?php
 	foreach($items as $data){
 		echo "<li>".
-				"<em>".date('Y.m.d',strtotime($data['Recruit']['startdate']))."</em><span>".
+				"<em>".date('d.m.Y',strtotime($data['Recruit']['startdate']))."</em><span>".
 				"<a href='".Configure::read('baseurl')."recruits/view/".$data['Recruit']['id']."'>".$data['Recruit']['title']."</a>".
 			"</li>";
 }

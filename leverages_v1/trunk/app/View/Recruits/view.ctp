@@ -16,7 +16,7 @@ $(document).ready(function(){
 	<h1 class="recruit">
 		<img
 			src="<?php echo Configure::read('baseurl');?>/frontend/images/recruit/ttl_main.png"
-			width="265" height="25" alt="Giới thiệu｜会社情報｜レバレジーズ株式会社" />
+		 alt="Giới thiệu｜会社情報｜レバレジーズ株式会社" />
 	</h1>
 
 	<!-- InstanceEndEditable -->
@@ -28,12 +28,12 @@ $(document).ready(function(){
 			<div class="section" id="our">
 				<div class="title">
 					<h2 style="font-size: 18px">
-						Recruit »
+						Tuyển dụng  »
 						<?php echo $data['title']?>
 					</h2>
 					<!-- .title // -->
 				</div>
-				<?php echo $data['content']?>
+				<table border='0' width='100%'><tr><td><?php echo $data['content']?></td></tr></table>
 
 
 				<p align="center" style="margin: 10px 0 10px 0">

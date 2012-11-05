@@ -22,11 +22,11 @@
 					foreach($contact as $data)
                                             {?>
 					<div class="tab-pane active" id="info">
-						<h3>
+						<h3 style="font-size:14px">
 							<?php 
                                                         $datetime=date('d-m-Y', strtotime($data['Contact']['send_date']));
 							echo $this->Html->link(
-                                                           strip_tags($data['Contact']['name']).'&nbsp;&nbsp;<small>['.$datetime.'] </small>'
+                                                           strip_tags($data['Contact']['name'],'').'&nbsp;&nbsp;<small>['.$datetime.'] </small>'
                                                         , array('controller' => 'contacts',
                                                         'action' => 'view',$data['Contact']['id']),array('escape' => false) );
                                                         ?>
@@ -71,14 +71,14 @@
 						<li>
                                                    <?php 
                                                     
-                                                    echo $this->Html->link(
-                                                         strip_tags($data['News']['title'])
+                                                    echo '<h3 style="font-size:14px">'.$this->Html->link(
+                                                         strip_tags($data['News']['title'],'')
                                                         , array('controller' => 'news',
                                                         'action' => 'view',$data['News']['id']),array('escape' => false));
                                                     
-                                                    ?>
-						<br> <strong>Ngày Đăng : </strong> <?php 
-                                                   echo date('d-m-Y', strtotime($data['News']['regdate']));
+                                                    ?></h3>
+						<strong>Ngày Đăng : </strong> <?php 
+                                                   echo date('d-m-Y', strtotime($data['News']['publishdate']));
 						?> 
                                                 <br>
                                                      <p> <?php 
@@ -102,7 +102,7 @@
 			<div class="box span4">
 				<div class="box-header well" data-original-title>
 					<h2>
-						<i class="icon-th"></i>
+						
                                                 
                                                 <?php 
                                                  echo $this->Html->link('
@@ -120,12 +120,12 @@
                                             {?>
 						<li>
                                                     <?php 
-                                                      echo $this->Html->link(
-                                                         strip_tags($data['Recruit']['title'])
+                                                      echo '<h3 style="font-size:14px">'.$this->Html->link(
+                                                         strip_tags($data['Recruit']['title'],'')
                                                         , array('controller' => 'recruits',
                                                         'action' => 'view',$data['Recruit']['id']),array('escape' => false));
                                                     ?>
-						<br> <strong>Có hiệu lực từ: </strong> <?php 
+						</h3> <strong>Có hiệu lực từ: </strong> <?php 
 						//$dt = DateTime::CreateFromFormat("Y-m-d H:i:s", '011-07-26 20:05:00');
                                                      echo date('d-m-Y', strtotime($data['Recruit']['startdate'])).' - '; 
                                                        echo date('d-m-Y', strtotime($data['Recruit']['enddate']));

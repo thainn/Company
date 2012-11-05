@@ -12,7 +12,7 @@
  */
 class CandidatesController extends AppController {
 
-    var $uses = array('Contact', 'Candidates', 'news', 'recruit');
+    var $uses = array('Contact', 'Candidates', 'news', 'recruit','Mails');
 
     public function admin_index() {
         App::uses('AppHelper', 'View/Helper');
@@ -29,15 +29,31 @@ class CandidatesController extends AppController {
         $this->paginate = array(
             'limit' => Configure::read('LIMIT_CANDIDATE'),
             'conditions' => array('flag' => '0'),
+            'order'=>'senddate desc'
+            
         );
         $data = $this->paginate("Candidates");
         $this->set("candidates", $data);
 
+        
+  
+        
+       $data2 = $this->Candidates->find('all', array('conditions' => array('flag' => '0')));
+        $count2 = 0;
+        foreach ($data as $data) {
+            $count2 = $count2 + 1;
+        }
+        $this->set('countGlobal',$count2);
+        
+        
+        
         $data = $this->Candidates->find('all', array('conditions' => array('flag' => '0')));
         $count = 0;
         foreach ($data as $data) {
             $count = $count + 1;
         }
+        
+        
         $this->set('lengthCandidates', $count);
          // $d = Router::url('/', true);
         $path = $this->here;
@@ -57,6 +73,7 @@ class CandidatesController extends AppController {
         if ($page != 0) {
             $NumberPaging = $NumberPaging + 1;
         }
+      
         $Maxpage = $NumberPaging;
         $pageCurrent = $buff;
         settype($pageCurrent, "integer");
@@ -64,6 +81,10 @@ class CandidatesController extends AppController {
         if ($pageCurrent > $Maxpage) {
             $this->redirect(array('controller' => 'Candidates', 'action' => 'index/page:'.$Maxpage));
         }
+        
+        
+        
+        
     }
 
     public function admin_view($id = null) {
@@ -90,6 +111,7 @@ class CandidatesController extends AppController {
             $this->header('Content-Type: application/json');
             $data = array();
             $result = array();
+             $this->Session->setFlash('Thông tin đã được xóa');
             echo json_encode($result);
         }
     }
@@ -100,10 +122,12 @@ class CandidatesController extends AppController {
             $sql = 'UPDATE candidates SET flag = 1 WHERE id =' . $id;
                  if(!$this->Candidates->query($sql)){
                           $this->Session->write('candidate', '1');
+                           $this->Session->setFlash('Thông tin đã được xóa');
                         $this->redirect(array('controller'=>'candidates', 'action'=>'index/'.$page));
     		}
         }
            $this->Session->write('candidate', '1');
+            $this->Session->setFlash('Thông tin đã được xóa');
     	  $this->redirect(array('controller'=>'candidates', 'action'=>'index/'.$page));
     }
     

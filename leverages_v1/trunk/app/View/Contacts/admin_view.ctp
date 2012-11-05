@@ -3,7 +3,7 @@
 
 if($error!=null)
 {?>
-<div align='center'> không tìm thấy trang Bạn Yêu Cầu </div>
+<div align='center'> Không tìm thấy trang bạn yêu cầu </div>
 <?php
 return;
 }
@@ -16,14 +16,14 @@ return;
         </div>
         <div class="box-content">
             <legend>
-                <b>Người gửi : </b><?php echo strip_tags($contact['Contact']['name']); ?><br >
+                <b>Người gửi : </b><?php echo strip_tags($contact['Contact']['name'],''); ?><br >
                 <b>Email</b>: <?php echo $contact['Contact']['email']; ?><br >
                 <b>Ngày gửi :</b> <?php
-        echo date('d-m-Y H:i',  strtotime($data['Contact']['send_date']));
+        echo date('d-m-Y H:i',  strtotime($contact['Contact']['send_date']));
         ?> <br >
             </legend>
 
-<?php echo strip_tags($contact['Contact']['content']); ?>
+<?php echo strip_tags($contact['Contact']['content'],''); ?>
 
             <p class="center">
 

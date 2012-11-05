@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="<?php echo Configure::read('baseurl');?>css/hc.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo Configure::read('baseurl');?>frontend/css/hc.css" media="all" />
 <!-- InstanceBeginEditable name="head" -->
 <script type="text/javascript">
 $(document).ready(function(){
@@ -16,8 +16,7 @@ $(document).ready(function(){
 
 
 <div id="Main"><!-- InstanceBeginEditable name="main" -->
-<h2 class="titlebar" style="font-weight:bold;font-size:13px">Human Capital</h2>
-
+<h2 class="titlebar" style="font-size:14px;font-weight:bold">Human Capital</h2>
 <div class="section">
 <p class="text1">Công ty chuyên đảm nhận mảng dịch vụ giới thiệu nhân sự với đủ loại đối tượng như sinh viên mới tốt nghiệp, kỹ sư...Quan niệm của Leverages là “Mình làm chủ cuộc đời mình”. Đối với chuyện thay công đổi việc, chúng tôi hết lòng được phục vụ vì hiểu rằng đó là chuyện đại sự của trong cuộc đời của mỗi người. Từ đó, với tâm niệm “win – win” của Leverages, dịch vụ sẽ ngày càng vươn xa ra ngoài thế giới.
 </p>
@@ -25,24 +24,17 @@ $(document).ready(function(){
 <!-- .section // --></div>
 
 <div class="section">
-<h3 class="title"><img src="<?php echo Configure::read('baseurl');?>frontend/images/hc/exe01.gif" alt="大手専門商社" /></h3>
-<p>業界2番手の優良企業です。
-福利厚生が充実しており、安心して働くことができます。
-人物重視の採用をされているため、営業未経験でも問題ありません。
+<h3 class="title" style="font-weight:bold;font-size:13px">Doanh nghiệp chuyên nghiệp lớn</h3>
+<p>Doanh nghiệp xuất sắc thứ 2 đầu ngành. Xây dựng nhiều phúc lợi Xã hội phong phú sao cho mọi nhân viên ai cũng hoàn toàn yên tâm làm việc. Công ty tuyển nhân sự dựa trên sự đánh giá chủ yếu về nhân phẩm, không chú trọng kinh nghiệm kinh doanh của ứng viên.
 </p>
 <!-- .section // --></div>
 <div class="section">
-<h3 class="title"><img src="<?php echo Configure::read('baseurl');?>frontend/images/hc/exe02.gif" alt="某ネットベンチャー" /></h3>
-<p>ITを駆使して、現在急成長している企業です。
-グローバルな展開を考えているため、将来は海外転勤もありえます。
-人物重視の採用をされているので、思いをぶつけてください。
+<h3 class="title" style="font-weight:bold;font-size:13px">Net venture</h3>
+<p>Là doanh nghiệp chuyên về IT đang trên tầm phát triển mạnh mẽ. Với định hướng mở rộng toàn cầu, công tác ra nước ngoài khá nhiều. Công ty tuyển dụng chú trọng nhân phẩm cá nhân.
 </p>
 <!-- .section // --></div>
 <div class="section">
-<p class="text2">人的ネットワークを駆使し、経営者から直接求人をいただくことが多いです。
-そのため、求人の内容が濃く、良い部分、悪い部分全てお話します。
-大手企業から数名規模のネットベンチャーまで、他社にはない
-非公開求人をご紹介できると思います。
+<p class="text2">Phần nhiều, doanh nghiệp sẽ trực tiếp xét tuyển phỏng vấn. Nội dung xét tuyển sẽ được công khai toàn bộ gồm những mặt tốt & mặt xấu. Từ doanh nghiệp lớn cho tới Net venture quy mô lớn, công ty công khai những tuyển dụng không được công khai ở những công ty khác.
 </p>
 <p class="fig2"><img src="<?php echo Configure::read('baseurl');?>frontend/images/hc/figure02.jpg" width="177" height="112" align="/" /></p>
 <!-- .section // --></div>

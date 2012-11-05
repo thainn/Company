@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="<?php echo Configure::read('baseurl');?>css/medical.css" media="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo Configure::read('baseurl');?>frontend/css/medical.css" media="all" />
 <!-- InstanceBeginEditable name="head" -->
 <script type="text/javascript">
 $(document).ready(function(){
@@ -8,7 +8,7 @@ $(document).ready(function(){
 });
 </script>
 <div id="Content">
-<a id="main-Contents" name="main-Contents"><img src="/<?php echo Configure::read('baseurl');?>frontend/images/common/spacer.gif" alt="ここからメインコンテンツです" /></a>
+<a id="main-Contents" name="main-Contents"><img src="<?php echo Configure::read('baseurl');?>frontend/images/spacer.gif" alt="ここからメインコンテンツです" /></a>
 <!-- InstanceBeginEditable name="title" -->
 <h1 class="service"><img src="<?php echo Configure::read('baseurl');?>frontend/images/medical/ttl_main.gif"  alt="Dịch vụ truyền thông｜事業領域｜レバレジーズ株式会社" /></h1>
 <!-- InstanceEndEditable -->
@@ -16,8 +16,7 @@ $(document).ready(function(){
 
 
 <div id="Main"><!-- InstanceBeginEditable name="main" -->
-<h2 class="titlebar" style="font-weight:bold;font-size:13px">Medical</h2>
-
+<h2 class="titlebar" style="font-size:14px;font-weight:bold">Dịch vụ medical</h2>
 <div class="section">
 <p class="text">Công ty chúng tôi có chức năng giới thiệu nhân sự tiềm năng trong lĩnh vực y tế. Tương lai, đứng trước hiện trạng lượng người cao tuổi vượt quá 20% tổng dân số, dự đoán Nhật bản có nguy cơ biến thành một “Xã hội già cỗi”. Thiết nghĩ, nhu cầu về dịch vụ dành cho người lớn tuổi như phúc lợi, y tế, chăm sóc sẽ có khuynh hướng gia tăng. Khi đó, Leverages phấn đấu trở thành một doanh nghiệp không thể thiếu trong lĩnh vực medical.
 </p>
@@ -29,27 +28,23 @@ $(document).ready(function(){
 <!-- .section // --></div>
 
 <div class="section">
-<h3 class="title"><img src="<?php echo Configure::read('baseurl');?>frontend/images/medical/exe01.gif" alt="大手医療法人グループ" /></h3>
-<p>世界3位の規模を誇り、高度先進医療の急性期～回復リハ、
-在宅医療と幅広く医療を提供している大手医療法人グループから全国規模で求人を獲得。
+<h3 class="title" style="font-weight:bold;font-size:13px">Tập đoàn pháp nhân y tế lớn</h3>
+<p>Tự hào xếp hàng thứ 3 thế giới chuyên về tuyển dụng cung cấp nhân sự cho những cơ sở y tế quy mô lớn.
 </p>
 <!-- .section // --></div>
 <div class="section">
-<h3 class="title"><img src="<?php echo Configure::read('baseurl');?>frontend/images/medical/exe02.gif" alt="介護施設を手がける大手企業" /></h3>
-<p>今後、市場が拡大していく介護医療業界の中で、JASDAQに上場し、
-全国で151の介護施設を手がける大手企業の求人情報を随時入手。
+<h3 class="title" style="font-weight:bold;font-size:13px">Tập đoàn lớn về thiết bị y tế</h3>
+<p>Công ty với lượng thông tin tuyển dụng dồi dào luôn sẵn sàng cung ứng nguồn nhân sự cho khoảng 151 doanh nghiệp lớn trên toàn quốc. Ngoài ra, công ty có mặt trên sàn chứng khoán JASDAQ.
 </p>
 <!-- .section // --></div>
 <div class="section">
-<h3 class="title"><img src="<?php echo Configure::read('baseurl');?>frontend/images/medical/exe03.gif" alt="国立病院機構" /></h3>
-<p>日本最大の病院グループ。
-ワークライフバランスや子育てを支援する制度・施設が充実した国立病院機構の求人を獲得。
+<h3 class="title" style="font-weight:bold;font-size:13px">Bệnh viện quốc gia</h3>
+<p>Những bệnh viện lớn nhất Nhật Bản. Tuyển chọn nhân sự cho những bệnh viện lớn mang tầm quốc gia, được trang bị hiện đại, có nhiều phúc lợi xã hội như chế độ “cân bằng công việc - cuộc sống”, những phúc lợi thuận tiện cho việc chăm sóc gia đình.
 </p>
 <!-- .section // --></div>
 <div class="section">
 <p class="fig2"><img src="<?php echo Configure::read('baseurl');?>frontend/images/medical/figure02.jpg" width="405" height="280" align="/" /></p>
-<p class="text2">Medicalでは、多様なニーズに応える多数の求人案件を、
-地域に密着したコンサルタントが的確にご紹介しています。
+<p class="text2">Công ty đảm nhận việc tư vấn cho nhiều cơ sở y tế lớn nhỏ khác.
 </p>
 <!-- .section // --></div>
 

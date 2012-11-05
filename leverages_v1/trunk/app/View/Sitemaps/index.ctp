@@ -20,7 +20,7 @@ $(document).ready(function(){
 <div class="section">
 <dl class="sitemap">
 	<dt><a href="<?php echo Configure::read('baseurl');?>">Trang chủ</a></dt>
-	<dt>Profile</dt>
+	<dt><a href="<?php echo Configure::read('baseurl');?>visions/">Profile</a></dt>
     	<dd>-<a href="<?php echo Configure::read('baseurl');?>visions/"> Mục tiêu</a></dd>
         <dd>-<a href="<?php echo Configure::read('baseurl');?>visions/profiles/"> Giới thiệu</a></dd>
         <dd>-<a href="<?php echo Configure::read('baseurl');?>visions/philosophy/"> Philosophy</a></dd>
